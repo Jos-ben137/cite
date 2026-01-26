@@ -1,0 +1,450 @@
+/* Google Material Design - CITE 2026 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #fafafa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Header - Material Design */
+header {
+    background-color: #1976D2;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.14), 0 3px 4px rgba(0,0,0,0.12), 0 1px 5px rgba(0,0,0,0.2);
+}
+
+nav {
+    padding: 16px 0;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    opacity: 0.9;
+    display: block;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section - Material */
+.hero {
+    background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.hero .subtitle {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    opacity: 0.95;
+}
+
+.hero .date {
+    font-size: 18px;
+    margin-bottom: 32px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Material Button */
+.btn {
+    display: inline-block;
+    background-color: #FF6F00;
+    color: white;
+    padding: 12px 32px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.14), 0 3px 4px rgba(0,0,0,0.12), 0 1px 5px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.14), 0 6px 8px rgba(0,0,0,0.12), 0 2px 10px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    box-shadow: 0 5px 5px rgba(0,0,0,0.14), 0 8px 10px rgba(0,0,0,0.12), 0 3px 14px rgba(0,0,0,0.2);
+}
+
+/* About Section */
+.about {
+    padding: 64px 0;
+    background-color: white;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.about p {
+    text-align: center;
+    font-size: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.8;
+}
+
+/* Objectives - Material Cards */
+.objectives {
+    padding: 64px 0;
+    background-color: #fafafa;
+}
+
+.objectives h2 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 400;
+    margin-bottom: 48px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.objective {
+    background: white;
+    padding: 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.14), 0 3px 1px rgba(0,0,0,0.12), 0 1px 5px rgba(0,0,0,0.2);
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.objective:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.14), 0 6px 8px rgba(0,0,0,0.12), 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.objective-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.objective h3 {
+    color: #1976D2;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.objective p {
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.6;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Topics Section */
+.topics {
+    padding: 64px 0;
+    background-color: #1976D2;
+    color: white;
+}
+
+.topics h2 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 400;
+    margin-bottom: 48px;
+    color: white;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.topic {
+    background: white;
+    padding: 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.14), 0 3px 1px rgba(0,0,0,0.12), 0 1px 5px rgba(0,0,0,0.2);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.topic:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.14), 0 12px 16px rgba(0,0,0,0.12), 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.topic h3 {
+    color: #1976D2;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.topic p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+}
+
+/* Schedule */
+.schedule {
+    padding: 64px 0;
+    background-color: #fafafa;
+}
+
+.schedule h2 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 400;
+    margin-bottom: 48px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.day {
+    margin-bottom: 32px;
+    background: white;
+    padding: 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.14), 0 3px 1px rgba(0,0,0,0.12), 0 1px 5px rgba(0,0,0,0.2);
+}
+
+.day h3 {
+    color: #1976D2;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.event {
+    display: flex;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.event:last-child {
+    border-bottom: none;
+}
+
+.event .time {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+    min-width: 100px;
+    font-size: 14px;
+}
+
+.event .description {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+}
+
+/* Speakers - Material Cards */
+.speakers {
+    padding: 64px 0;
+    background-color: white;
+}
+
+.speakers h2 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 400;
+    margin-bottom: 48px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.speaker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.speaker {
+    background: white;
+    padding: 24px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.14), 0 3px 1px rgba(0,0,0,0.12), 0 1px 5px rgba(0,0,0,0.2);
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.speaker:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.14), 0 6px 8px rgba(0,0,0,0.12), 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.speaker-img {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.14), 0 3px 4px rgba(0,0,0,0.12), 0 1px 5px rgba(0,0,0,0.2);
+}
+
+.speaker h3 {
+    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.speaker p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+}
+
+/* Registration */
+.registration {
+    padding: 64px 0;
+    background-color: #fafafa;
+}
+
+.registration h2 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.registration > .container > p {
+    text-align: center;
+    margin-bottom: 32px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+}
+
+.registration-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: white;
+    padding: 32px;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.14), 0 3px 1px rgba(0,0,0,0.12), 0 1px 5px rgba(0,0,0,0.2);
+}
+
+.registration-form input,
+.registration-form select {
+    padding: 16px 12px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    background-color: transparent;
+    transition: border-bottom-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.registration-form input:focus,
+.registration-form select:focus {
+    outline: none;
+    border-bottom-color: #1976D2;
+    border-bottom-width: 2px;
+}
+
+/* Footer - Material */
+footer {
+    background-color: #263238;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 32px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    nav .container {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .hero h2 {
+        font-size: 32px;
+    }
+    
+    .hero .subtitle {
+        font-size: 18px;
+    }
+    
+    .objectives-grid,
+    .topics-grid,
+    .speaker-grid {
+        grid-template-columns: 1fr;
+    }
+}
