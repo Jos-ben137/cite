@@ -1,0 +1,162 @@
+/* ===================================
+   VARIABLES CSS - CITE 2026
+   Material Design System
+   =================================== */
+
+:root {
+  /* Colores Principales - Actualiza estos cuando tengas tus imágenes */
+  --primary-color: #1976D2;
+  --primary-light: #42A5F5;
+  --primary-dark: #1565C0;
+  
+  --secondary-color: #FF6F00;
+  --secondary-light: #FF8F00;
+  --secondary-dark: #E65100;
+  
+  --accent-color: #00BCD4;
+  --accent-light: #4DD0E1;
+  --accent-dark: #0097A7;
+  
+  /* Colores de Superficie */
+  --surface-white: #FFFFFF;
+  --surface-gray: #FAFAFA;
+  --surface-dark: #263238;
+  
+  /* Colores de Texto */
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.38);
+  --text-hint: rgba(0, 0, 0, 0.38);
+  --text-white: rgba(255, 255, 255, 0.87);
+  --text-white-secondary: rgba(255, 255, 255, 0.7);
+  
+  /* Colores Semánticos */
+  --success-color: #4CAF50;
+  --warning-color: #FF9800;
+  --error-color: #F44336;
+  --info-color: #2196F3;
+  
+  /* Tipografía - Material Design */
+  --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Font Sizes - Material Design Scale */
+  --font-size-h1: 96px;   /* Display 1 */
+  --font-size-h2: 60px;   /* Display 2 */
+  --font-size-h3: 48px;   /* Display 3 */
+  --font-size-h4: 34px;   /* Headline */
+  --font-size-h5: 24px;   /* Title */
+  --font-size-h6: 20px;   /* Subheading */
+  --font-size-body1: 16px;
+  --font-size-body2: 14px;
+  --font-size-caption: 12px;
+  --font-size-button: 14px;
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.8;
+  
+  /* Espaciado - Sistema 8dp Grid */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 80px;
+  
+  /* Radios de Borde */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-xl: 12px;
+  --border-radius-round: 50%;
+  
+  /* Sombras Material Design - Elevación */
+  --shadow-1: 0 2px 1px -1px rgba(0,0,0,0.2),
+              0 1px 1px 0 rgba(0,0,0,0.14),
+              0 1px 3px 0 rgba(0,0,0,0.12);
+              
+  --shadow-2: 0 3px 1px -2px rgba(0,0,0,0.2),
+              0 2px 2px 0 rgba(0,0,0,0.14),
+              0 1px 5px 0 rgba(0,0,0,0.12);
+              
+  --shadow-3: 0 3px 3px -2px rgba(0,0,0,0.2),
+              0 3px 4px 0 rgba(0,0,0,0.14),
+              0 1px 8px 0 rgba(0,0,0,0.12);
+              
+  --shadow-4: 0 2px 4px -1px rgba(0,0,0,0.2),
+              0 4px 5px 0 rgba(0,0,0,0.14),
+              0 1px 10px 0 rgba(0,0,0,0.12);
+              
+  --shadow-6: 0 3px 5px -1px rgba(0,0,0,0.2),
+              0 6px 10px 0 rgba(0,0,0,0.14),
+              0 1px 18px 0 rgba(0,0,0,0.12);
+              
+  --shadow-8: 0 5px 5px -3px rgba(0,0,0,0.2),
+              0 8px 10px 1px rgba(0,0,0,0.14),
+              0 3px 14px 2px rgba(0,0,0,0.12);
+              
+  --shadow-12: 0 7px 8px -4px rgba(0,0,0,0.2),
+               0 12px 17px 2px rgba(0,0,0,0.14),
+               0 5px 22px 4px rgba(0,0,0,0.12);
+               
+  --shadow-16: 0 8px 10px -5px rgba(0,0,0,0.2),
+               0 16px 24px 2px rgba(0,0,0,0.14),
+               0 6px 30px 5px rgba(0,0,0,0.12);
+  
+  /* Transiciones Material Design */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Curvas de Animación Material */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --ease-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+  
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  
+  /* Anchos Máximos */
+  --max-width-xs: 480px;
+  --max-width-sm: 768px;
+  --max-width-md: 1024px;
+  --max-width-lg: 1200px;
+  --max-width-xl: 1440px;
+  
+  /* Parallax */
+  --parallax-speed-slow: 0.3;
+  --parallax-speed-medium: 0.5;
+  --parallax-speed-fast: 0.7;
+  
+  /* Overlay Opacity */
+  --overlay-light: rgba(0, 0, 0, 0.3);
+  --overlay-medium: rgba(0, 0, 0, 0.5);
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+}
+
+/* Dark Theme Variables (opcional para futuro) */
+[data-theme="dark"] {
+  --primary-color: #42A5F5;
+  --surface-white: #1E1E1E;
+  --surface-gray: #121212;
+  --surface-dark: #000000;
+  --text-primary: rgba(255, 255, 255, 0.87);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-disabled: rgba(255, 255, 255, 0.38);
+}

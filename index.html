@@ -3,258 +3,498 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CITE 2026 - Coloquio de Ingeniería y Tecnologías Emergentes. Espacio de encuentro académico para conocer tendencias en innovación y desarrollo tecnológico.">
     <title>CITE 2026 - Coloquio de Ingeniería y Tecnologías Emergentes</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts - Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- CSS Modular - El orden es importante -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/parallax.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="container">
-                <div class="logo">
-                    <h1>CITE 2026</h1>
-                    <span class="logo-subtitle">Coloquio de Ingeniería y Tecnologías Emergentes</span>
+    
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container nav__container">
+                <div class="nav__logo">
+                    <img src="images/logos/logo-cite.png" alt="CITE 2026" class="nav__logo-img">
+                    <div class="nav__logo-text">
+                        <h1 class="nav__title">CITE 2026</h1>
+                        <span class="nav__subtitle">Coloquio de Ingeniería y Tecnologías Emergentes</span>
+                    </div>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#sobre">Sobre CITE</a></li>
-                    <li><a href="#objetivos">Objetivos</a></li>
-                    <li><a href="#programa">Programa</a></li>
-                    <li><a href="#ponentes">Ponentes</a></li>
-                    <li><a href="#registro">Registro</a></li>
+                
+                <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="material-icons">menu</span>
+                </button>
+                
+                <ul class="nav__links" id="navLinks">
+                    <li class="nav__item"><a href="#inicio" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="#sobre" class="nav__link">Sobre CITE</a></li>
+                    <li class="nav__item"><a href="#objetivos" class="nav__link">Objetivos</a></li>
+                    <li class="nav__item"><a href="#tematicas" class="nav__link">Áreas</a></li>
+                    <li class="nav__item"><a href="#programa" class="nav__link">Programa</a></li>
+                    <li class="nav__item"><a href="#ponentes" class="nav__link">Ponentes</a></li>
+                    <li class="nav__item"><a href="#registro" class="nav__link nav__link--cta">Registro</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="container">
-            <h2>Coloquio de Ingeniería y Tecnologías Emergentes</h2>
-            <p class="subtitle">Innovación, Investigación y Desarrollo Tecnológico</p>
-            <p class="date">15 - 17 de Marzo, 2026</p>
-            <a href="#registro" class="btn">Regístrate Ahora</a>
+    <!-- Hero Section con Parallax -->
+    <section id="inicio" class="hero parallax" data-speed="0.5">
+        <div class="hero__overlay"></div>
+        <div class="container hero__container">
+            <h2 class="hero__title" data-aos="fade-up">Coloquio de Ingeniería y Tecnologías Emergentes</h2>
+            <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="100">Innovación, Investigación y Desarrollo Tecnológico</p>
+            <p class="hero__date" data-aos="fade-up" data-aos-delay="200">
+                <span class="material-icons hero__icon">event</span>
+                15 - 17 de Marzo, 2026
+            </p>
+            <p class="hero__location" data-aos="fade-up" data-aos-delay="250">
+                <span class="material-icons hero__icon">place</span>
+                Ciudad de Villa de Álvarez, Colima, México
+            </p>
+            <a href="#registro" class="btn btn--primary btn--large" data-aos="fade-up" data-aos-delay="300">
+                Regístrate Ahora
+                <span class="material-icons btn__icon">arrow_forward</span>
+            </a>
         </div>
     </section>
 
-    <section id="sobre" class="about">
+    <!-- Sobre CITE -->
+    <section id="sobre" class="about section">
         <div class="container">
-            <h2>Sobre el CITE</h2>
-            <p>El Coloquio de Ingeniería y Tecnologías Emergentes (CITE) es un espacio de encuentro y reflexión académica diseñado para conocer las tendencias actuales en ingeniería y tecnologías emergentes. Durante tres días, la comunidad universitaria tendrá la oportunidad de fortalecer su formación académica y motivar el interés por la investigación, la innovación y el desarrollo tecnológico.</p>
+            <h2 class="section__title" data-aos="fade-up">Sobre el CITE</h2>
+            <p class="section__description" data-aos="fade-up" data-aos-delay="100">
+                El Coloquio de Ingeniería y Tecnologías Emergentes (CITE) es un espacio de encuentro y reflexión académica diseñado para conocer las tendencias actuales en ingeniería y tecnologías emergentes. Durante tres días, la comunidad universitaria tendrá la oportunidad de fortalecer su formación académica y motivar el interés por la investigación, la innovación y el desarrollo tecnológico.
+            </p>
         </div>
     </section>
 
-    <section id="objetivos" class="objectives">
+    <!-- Objetivos -->
+    <section id="objetivos" class="objectives section section--gray">
         <div class="container">
-            <h2>Objetivos del Coloquio</h2>
-            <div class="objectives-grid">
-                <div class="objective">
-                    <div class="objective-icon">🔬</div>
-                    <h3>Investigación</h3>
-                    <p>Motivar el interés por la investigación científica y tecnológica en la comunidad universitaria</p>
+            <h2 class="section__title" data-aos="fade-up">Objetivos del Coloquio</h2>
+            
+            <div class="objectives__grid">
+                <div class="card card--objective" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card__icon">
+                        <span class="material-icons">science</span>
+                    </div>
+                    <h3 class="card__title">Investigación</h3>
+                    <p class="card__text">Motivar el interés por la investigación científica y tecnológica en la comunidad universitaria</p>
                 </div>
-                <div class="objective">
-                    <div class="objective-icon">💡</div>
-                    <h3>Innovación</h3>
-                    <p>Fomentar la innovación y el desarrollo de soluciones tecnológicas a problemas actuales</p>
+                
+                <div class="card card--objective" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card__icon">
+                        <span class="material-icons">lightbulb</span>
+                    </div>
+                    <h3 class="card__title">Innovación</h3>
+                    <p class="card__text">Fomentar la innovación y el desarrollo de soluciones tecnológicas a problemas actuales</p>
                 </div>
-                <div class="objective">
-                    <div class="objective-icon">📊</div>
-                    <h3>Tendencias Actuales</h3>
-                    <p>Conocer las tendencias y avances más recientes en ingeniería y tecnologías emergentes</p>
+                
+                <div class="card card--objective" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card__icon">
+                        <span class="material-icons">trending_up</span>
+                    </div>
+                    <h3 class="card__title">Tendencias Actuales</h3>
+                    <p class="card__text">Conocer las tendencias y avances más recientes en ingeniería y tecnologías emergentes</p>
                 </div>
-                <div class="objective">
-                    <div class="objective-icon">🎓</div>
-                    <h3>Formación Académica</h3>
-                    <p>Fortalecer la formación académica mediante el intercambio de conocimientos y experiencias</p>
+                
+                <div class="card card--objective" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card__icon">
+                        <span class="material-icons">school</span>
+                    </div>
+                    <h3 class="card__title">Formación Académica</h3>
+                    <p class="card__text">Fortalecer la formación académica mediante el intercambio de conocimientos y experiencias</p>
                 </div>
-                <div class="objective">
-                    <div class="objective-icon">🤝</div>
-                    <h3>Encuentro Académico</h3>
-                    <p>Generar un espacio de reflexión y diálogo entre estudiantes, académicos y profesionales</p>
+                
+                <div class="card card--objective" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card__icon">
+                        <span class="material-icons">groups</span>
+                    </div>
+                    <h3 class="card__title">Encuentro Académico</h3>
+                    <p class="card__text">Generar un espacio de reflexión y diálogo entre estudiantes, académicos y profesionales</p>
                 </div>
-                <div class="objective">
-                    <div class="objective-icon">🚀</div>
-                    <h3>Desarrollo Tecnológico</h3>
-                    <p>Impulsar el desarrollo tecnológico y la aplicación práctica del conocimiento</p>
+                
+                <div class="card card--objective" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card__icon">
+                        <span class="material-icons">rocket_launch</span>
+                    </div>
+                    <h3 class="card__title">Desarrollo Tecnológico</h3>
+                    <p class="card__text">Impulsar el desarrollo tecnológico y la aplicación práctica del conocimiento</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tematicas" class="topics">
+    <!-- Parallax Divider 1 -->
+    <div class="parallax-divider parallax" data-speed="0.3">
+        <div class="parallax-divider__overlay"></div>
+        <div class="container parallax-divider__content">
+            <h3 class="parallax-divider__title">Innovación que transforma el futuro</h3>
+        </div>
+    </div>
+
+    <!-- Áreas Temáticas -->
+    <section id="tematicas" class="topics section">
         <div class="container">
-            <h2>Áreas Temáticas</h2>
-            <div class="topics-grid">
-                <div class="topic">
-                    <h3>Inteligencia Artificial</h3>
-                    <p>Machine Learning, Deep Learning, IA Generativa</p>
+            <h2 class="section__title section__title--light" data-aos="fade-up">Áreas Temáticas</h2>
+            
+            <div class="topics__grid">
+                <div class="card card--topic" data-aos="fade-up" data-aos-delay="100">
+                    <span class="material-icons card__icon-large">psychology</span>
+                    <h3 class="card__title">Inteligencia Artificial</h3>
+                    <p class="card__text">Machine Learning, Deep Learning, IA Generativa</p>
                 </div>
-                <div class="topic">
-                    <h3>Internet de las Cosas</h3>
-                    <p>IoT, Smart Cities, Automatización</p>
+                
+                <div class="card card--topic" data-aos="fade-up" data-aos-delay="200">
+                    <span class="material-icons card__icon-large">devices</span>
+                    <h3 class="card__title">Internet de las Cosas</h3>
+                    <p class="card__text">IoT, Smart Cities, Automatización</p>
                 </div>
-                <div class="topic">
-                    <h3>Ciberseguridad</h3>
-                    <p>Seguridad Informática, Blockchain, Criptografía</p>
+                
+                <div class="card card--topic" data-aos="fade-up" data-aos-delay="300">
+                    <span class="material-icons card__icon-large">security</span>
+                    <h3 class="card__title">Ciberseguridad</h3>
+                    <p class="card__text">Seguridad Informática, Blockchain, Criptografía</p>
                 </div>
-                <div class="topic">
-                    <h3>Energías Renovables</h3>
-                    <p>Sustentabilidad, Eficiencia Energética, Innovación Verde</p>
+                
+                <div class="card card--topic" data-aos="fade-up" data-aos-delay="100">
+                    <span class="material-icons card__icon-large">wb_sunny</span>
+                    <h3 class="card__title">Energías Renovables</h3>
+                    <p class="card__text">Sustentabilidad, Eficiencia Energética, Innovación Verde</p>
                 </div>
-                <div class="topic">
-                    <h3>Robótica y Automatización</h3>
-                    <p>Robótica Móvil, Sistemas Autónomos, Industria 4.0</p>
+                
+                <div class="card card--topic" data-aos="fade-up" data-aos-delay="200">
+                    <span class="material-icons card__icon-large">precision_manufacturing</span>
+                    <h3 class="card__title">Robótica y Automatización</h3>
+                    <p class="card__text">Robótica Móvil, Sistemas Autónomos, Industria 4.0</p>
                 </div>
-                <div class="topic">
-                    <h3>Desarrollo de Software</h3>
-                    <p>Cloud Computing, DevOps, Arquitecturas Modernas</p>
+                
+                <div class="card card--topic" data-aos="fade-up" data-aos-delay="300">
+                    <span class="material-icons card__icon-large">code</span>
+                    <h3 class="card__title">Desarrollo de Software</h3>
+                    <p class="card__text">Cloud Computing, DevOps, Arquitecturas Modernas</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="programa" class="schedule">
+    <!-- Programa -->
+    <section id="programa" class="schedule section section--gray">
         <div class="container">
-            <h2>Programa del Evento</h2>
-            <div class="day">
-                <h3>Día 1 - 15 de Marzo</h3>
-                <div class="event">
-                    <span class="time">9:00 AM</span>
-                    <span class="description">Inauguración y conferencia magistral: "El futuro de la ingeniería en la era digital"</span>
+            <h2 class="section__title" data-aos="fade-up">Programa del Evento</h2>
+            
+            <div class="schedule__days">
+                <!-- Día 1 -->
+                <div class="day-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="day-card__header">
+                        <span class="material-icons day-card__icon">calendar_today</span>
+                        <h3 class="day-card__title">Día 1 - 15 de Marzo</h3>
+                    </div>
+                    <div class="day-card__content">
+                        <div class="event">
+                            <span class="event__time">9:00 AM</span>
+                            <span class="event__description">Inauguración y conferencia magistral: "El futuro de la ingeniería en la era digital"</span>
+                        </div>
+                        <div class="event">
+                            <span class="event__time">11:00 AM</span>
+                            <span class="event__description">Panel: Inteligencia Artificial y sus aplicaciones en la industria</span>
+                        </div>
+                        <div class="event event--break">
+                            <span class="event__time">1:00 PM</span>
+                            <span class="event__description">Receso - Networking</span>
+                        </div>
+                        <div class="event">
+                            <span class="event__time">2:30 PM</span>
+                            <span class="event__description">Presentación de proyectos estudiantiles - Sesión 1</span>
+                        </div>
+                        <div class="event">
+                            <span class="event__time">4:30 PM</span>
+                            <span class="event__description">Taller: Introducción a Machine Learning</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="event">
-                    <span class="time">11:00 AM</span>
-                    <span class="description">Panel: Inteligencia Artificial y sus aplicaciones en la industria</span>
+                
+                <!-- Día 2 -->
+                <div class="day-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="day-card__header">
+                        <span class="material-icons day-card__icon">calendar_today</span>
+                        <h3 class="day-card__title">Día 2 - 16 de Marzo</h3>
+                    </div>
+                    <div class="day-card__content">
+                        <div class="event">
+                            <span class="event__time">9:00 AM</span>
+                            <span class="event__description">Conferencia: Internet de las Cosas y Ciudades Inteligentes</span>
+                        </div>
+                        <div class="event">
+                            <span class="event__time">11:00 AM</span>
+                            <span class="event__description">Mesa redonda: Ciberseguridad en la era digital</span>
+                        </div>
+                        <div class="event event--break">
+                            <span class="event__time">1:00 PM</span>
+                            <span class="event__description">Sesión de pósters y exhibición de proyectos</span>
+                        </div>
+                        <div class="event">
+                            <span class="event__time">3:00 PM</span>
+                            <span class="event__description">Talleres paralelos: Robótica / Desarrollo Web / Energías Renovables</span>
+                        </div>
+                        <div class="event">
+                            <span class="event__time">5:00 PM</span>
+                            <span class="event__description">Panel de egresados: Experiencias en la industria tecnológica</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="event">
-                    <span class="time">1:00 PM</span>
-                    <span class="description">Receso - Networking</span>
-                </div>
-                <div class="event">
-                    <span class="time">2:30 PM</span>
-                    <span class="description">Presentación de proyectos estudiantiles - Sesión 1</span>
-                </div>
-                <div class="event">
-                    <span class="time">4:30 PM</span>
-                    <span class="description">Taller: Introducción a Machine Learning</span>
-                </div>
-            </div>
-            <div class="day">
-                <h3>Día 2 - 16 de Marzo</h3>
-                <div class="event">
-                    <span class="time">9:00 AM</span>
-                    <span class="description">Conferencia: Internet de las Cosas y Ciudades Inteligentes</span>
-                </div>
-                <div class="event">
-                    <span class="time">11:00 AM</span>
-                    <span class="description">Mesa redonda: Ciberseguridad en la era digital</span>
-                </div>
-                <div class="event">
-                    <span class="time">1:00 PM</span>
-                    <span class="description">Sesión de pósters y exhibición de proyectos</span>
-                </div>
-                <div class="event">
-                    <span class="time">3:00 PM</span>
-                    <span class="description">Talleres paralelos: Robótica / Desarrollo Web / Energías Renovables</span>
-                </div>
-                <div class="event">
-                    <span class="time">5:00 PM</span>
-                    <span class="description">Panel de egresados: Experiencias en la industria tecnológica</span>
-                </div>
-            </div>
-            <div class="day">
-                <h3>Día 3 - 17 de Marzo</h3>
-                <div class="event">
-                    <span class="time">9:00 AM</span>
-                    <span class="description">Conferencia: Innovación y desarrollo tecnológico sustentable</span>
-                </div>
-                <div class="event">
-                    <span class="time">11:00 AM</span>
-                    <span class="description">Presentación de proyectos estudiantiles - Sesión 2</span>
-                </div>
-                <div class="event">
-                    <span class="time">1:00 PM</span>
-                    <span class="description">Conferencia de clausura: Tendencias emergentes en ingeniería</span>
-                </div>
-                <div class="event">
-                    <span class="time">2:30 PM</span>
-                    <span class="description">Premiación de mejores proyectos y clausura</span>
+                
+                <!-- Día 3 -->
+                <div class="day-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="day-card__header">
+                        <span class="material-icons day-card__icon">calendar_today</span>
+                        <h3 class="day-card__title">Día 3 - 17 de Marzo</h3>
+                    </div>
+                    <div class="day-card__content">
+                        <div class="event">
+                            <span class="event__time">9:00 AM</span>
+                            <span class="event__description">Conferencia: Innovación y desarrollo tecnológico sustentable</span>
+                        </div>
+                        <div class="event">
+                            <span class="event__time">11:00 AM</span>
+                            <span class="event__description">Presentación de proyectos estudiantiles - Sesión 2</span>
+                        </div>
+                        <div class="event">
+                            <span class="event__time">1:00 PM</span>
+                            <span class="event__description">Conferencia de clausura: Tendencias emergentes en ingeniería</span>
+                        </div>
+                        <div class="event event--highlight">
+                            <span class="event__time">2:30 PM</span>
+                            <span class="event__description">Premiación de mejores proyectos y clausura</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="ponentes" class="speakers">
+    <!-- Parallax Divider 2 -->
+    <div class="parallax-divider parallax parallax-divider--alt" data-speed="0.3">
+        <div class="parallax-divider__overlay"></div>
+        <div class="container parallax-divider__content">
+            <h3 class="parallax-divider__title">Conecta con expertos de la industria</h3>
+        </div>
+    </div>
+
+    <!-- Ponentes -->
+    <section id="ponentes" class="speakers section">
         <div class="container">
-            <h2>Ponentes Invitados</h2>
-            <div class="speaker-grid">
-                <div class="speaker">
-                    <div class="speaker-img"></div>
-                    <h3>Dr. Roberto Sánchez</h3>
-                    <p>Experto en Inteligencia Artificial y Machine Learning</p>
+            <h2 class="section__title" data-aos="fade-up">Ponentes Invitados</h2>
+            
+            <div class="speakers__grid">
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="speaker-card__image">
+                        <img src="images/speakers/ponente-1.jpg" alt="Dr. Roberto Sánchez" loading="lazy">
+                    </div>
+                    <div class="speaker-card__content">
+                        <h3 class="speaker-card__name">Dr. Roberto Sánchez</h3>
+                        <p class="speaker-card__title">Experto en Inteligencia Artificial</p>
+                        <p class="speaker-card__bio">Especialista en Machine Learning y Deep Learning con más de 15 años de experiencia</p>
+                        <div class="speaker-card__social">
+                            <a href="#" class="speaker-card__link" aria-label="LinkedIn">
+                                <span class="material-icons">link</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="speaker">
-                    <div class="speaker-img"></div>
-                    <h3>Ing. María López</h3>
-                    <p>Especialista en Internet de las Cosas y Smart Cities</p>
+                
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="speaker-card__image">
+                        <img src="images/speakers/ponente-2.jpg" alt="Ing. María López" loading="lazy">
+                    </div>
+                    <div class="speaker-card__content">
+                        <h3 class="speaker-card__name">Ing. María López</h3>
+                        <p class="speaker-card__title">Especialista en IoT</p>
+                        <p class="speaker-card__bio">Líder en proyectos de Smart Cities e Internet de las Cosas a nivel internacional</p>
+                        <div class="speaker-card__social">
+                            <a href="#" class="speaker-card__link" aria-label="LinkedIn">
+                                <span class="material-icons">link</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="speaker">
-                    <div class="speaker-img"></div>
-                    <h3>Dr. Carlos Mendoza</h3>
-                    <p>Investigador en Energías Renovables y Sustentabilidad</p>
+                
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="speaker-card__image">
+                        <img src="images/speakers/ponente-3.jpg" alt="Dr. Carlos Mendoza" loading="lazy">
+                    </div>
+                    <div class="speaker-card__content">
+                        <h3 class="speaker-card__name">Dr. Carlos Mendoza</h3>
+                        <p class="speaker-card__title">Investigador en Energías Renovables</p>
+                        <p class="speaker-card__bio">Pionero en proyectos de sustentabilidad y eficiencia energética</p>
+                        <div class="speaker-card__social">
+                            <a href="#" class="speaker-card__link" aria-label="LinkedIn">
+                                <span class="material-icons">link</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="speaker">
-                    <div class="speaker-img"></div>
-                    <h3>Ing. Ana Torres</h3>
-                    <p>Líder en Ciberseguridad y Blockchain</p>
+                
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="speaker-card__image">
+                        <img src="images/speakers/ponente-4.jpg" alt="Ing. Ana Torres" loading="lazy">
+                    </div>
+                    <div class="speaker-card__content">
+                        <h3 class="speaker-card__name">Ing. Ana Torres</h3>
+                        <p class="speaker-card__title">Líder en Ciberseguridad</p>
+                        <p class="speaker-card__bio">Experta en Blockchain y protección de infraestructuras críticas</p>
+                        <div class="speaker-card__social">
+                            <a href="#" class="speaker-card__link" aria-label="LinkedIn">
+                                <span class="material-icons">link</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="speaker">
-                    <div class="speaker-img"></div>
-                    <h3>Dr. Luis Ramírez</h3>
-                    <p>Experto en Robótica y Automatización Industrial</p>
+                
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="speaker-card__image">
+                        <img src="images/speakers/ponente-5.jpg" alt="Dr. Luis Ramírez" loading="lazy">
+                    </div>
+                    <div class="speaker-card__content">
+                        <h3 class="speaker-card__name">Dr. Luis Ramírez</h3>
+                        <p class="speaker-card__title">Experto en Robótica</p>
+                        <p class="speaker-card__bio">Investigador en automatización industrial y sistemas autónomos</p>
+                        <div class="speaker-card__social">
+                            <a href="#" class="speaker-card__link" aria-label="LinkedIn">
+                                <span class="material-icons">link</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="speaker">
-                    <div class="speaker-img"></div>
-                    <h3>Ing. Patricia Gómez</h3>
-                    <p>Arquitecta de Software y Cloud Computing</p>
+                
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="speaker-card__image">
+                        <img src="images/speakers/ponente-6.jpg" alt="Ing. Patricia Gómez" loading="lazy">
+                    </div>
+                    <div class="speaker-card__content">
+                        <h3 class="speaker-card__name">Ing. Patricia Gómez</h3>
+                        <p class="speaker-card__title">Arquitecta de Software</p>
+                        <p class="speaker-card__bio">Especialista en Cloud Computing y arquitecturas distribuidas</p>
+                        <div class="speaker-card__social">
+                            <a href="#" class="speaker-card__link" aria-label="LinkedIn">
+                                <span class="material-icons">link</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="registro" class="registration">
+    <!-- Registro -->
+    <section id="registro" class="registration section section--gray">
         <div class="container">
-            <h2>Registro CITE 2026</h2>
-            <p>Asegura tu participación en el coloquio y forma parte de este encuentro académico</p>
-            <form class="registration-form">
-                <input type="text" placeholder="Nombre completo" required>
-                <input type="email" placeholder="Correo electrónico institucional" required>
-                <input type="text" placeholder="Universidad/Institución" required>
-                <select required>
-                    <option value="">Selecciona tu área de interés</option>
-                    <option value="ia">Inteligencia Artificial</option>
-                    <option value="iot">Internet de las Cosas</option>
-                    <option value="ciberseguridad">Ciberseguridad</option>
-                    <option value="energia">Energías Renovables</option>
-                    <option value="robotica">Robótica y Automatización</option>
-                    <option value="software">Desarrollo de Software</option>
-                    <option value="otra">Otra área de ingeniería</option>
-                </select>
-                <select required>
-                    <option value="">¿Presentarás proyecto?</option>
-                    <option value="si-oral">Sí, presentación oral</option>
-                    <option value="si-poster">Sí, póster</option>
-                    <option value="no">No presentaré proyecto</option>
-                </select>
-                <button type="submit" class="btn">Enviar Registro</button>
+            <h2 class="section__title" data-aos="fade-up">Registro CITE 2026</h2>
+            <p class="section__description" data-aos="fade-up" data-aos-delay="100">
+                Asegura tu participación en el coloquio y forma parte de este encuentro académico
+            </p>
+            
+            <form class="form" data-aos="fade-up" data-aos-delay="200">
+                <div class="form__group">
+                    <label for="nombre" class="form__label">Nombre completo *</label>
+                    <input type="text" id="nombre" class="form__input" required>
+                </div>
+                
+                <div class="form__group">
+                    <label for="email" class="form__label">Correo electrónico institucional *</label>
+                    <input type="email" id="email" class="form__input" required>
+                </div>
+                
+                <div class="form__group">
+                    <label for="institucion" class="form__label">Universidad/Institución *</label>
+                    <input type="text" id="institucion" class="form__input" required>
+                </div>
+                
+                <div class="form__group">
+                    <label for="area" class="form__label">Área de interés *</label>
+                    <select id="area" class="form__select" required>
+                        <option value="">Selecciona tu área de interés</option>
+                        <option value="ia">Inteligencia Artificial</option>
+                        <option value="iot">Internet de las Cosas</option>
+                        <option value="ciberseguridad">Ciberseguridad</option>
+                        <option value="energia">Energías Renovables</option>
+                        <option value="robotica">Robótica y Automatización</option>
+                        <option value="software">Desarrollo de Software</option>
+                        <option value="otra">Otra área de ingeniería</option>
+                    </select>
+                </div>
+                
+                <div class="form__group">
+                    <label for="proyecto" class="form__label">¿Presentarás proyecto? *</label>
+                    <select id="proyecto" class="form__select" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="si-oral">Sí, presentación oral</option>
+                        <option value="si-poster">Sí, póster</option>
+                        <option value="no">No presentaré proyecto</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn--primary btn--large btn--full">
+                    Enviar Registro
+                    <span class="material-icons btn__icon">send</span>
+                </button>
             </form>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 CITE - Coloquio de Ingeniería y Tecnologías Emergentes</p>
-            <p>Contacto: cite@universidad.edu | Tel: +52 (312) 123-4567</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">CITE 2026</h3>
+                    <p class="footer__text">Coloquio de Ingeniería y Tecnologías Emergentes</p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3 class="footer__title">Contacto</h3>
+                    <p class="footer__text">
+                        <span class="material-icons footer__icon">email</span>
+                        cite@universidad.edu
+                    </p>
+                    <p class="footer__text">
+                        <span class="material-icons footer__icon">phone</span>
+                        +52 (312) 123-4567
+                    </p>
+                </div>
+                
+                <div class="footer__section">
+                    <h3 class="footer__title">Ubicación</h3>
+                    <p class="footer__text">
+                        <span class="material-icons footer__icon">place</span>
+                        Ciudad de Villa de Álvarez<br>Colima, México
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2026 CITE - Coloquio de Ingeniería y Tecnologías Emergentes. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/parallax.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

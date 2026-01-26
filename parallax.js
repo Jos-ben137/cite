@@ -1,0 +1,394 @@
+/**
+ * MAIN JAVASCRIPT - CITE 2026
+ * Funcionalidad general del sitio
+ */
+
+(function() {
+  'use strict';
+
+  // ===================
+  // MOBILE NAVIGATION
+  // ===================
+  
+  /**
+   * Toggle del menú móvil
+   */
+  function initMobileNav() {
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (!navToggle || !navLinks) return;
+    
+    // Toggle al hacer clic en el botón
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      
+      // Cambiar icono
+      const icon = navToggle.querySelector('.material-icons');
+      if (icon) {
+        icon.textContent = navLinks.classList.contains('active') ? 'close' : 'menu';
+      }
+      
+      // Prevenir scroll del body cuando el menú está abierto
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    const links = navLinks.querySelectorAll('.nav__link');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        const icon = navToggle.querySelector('.material-icons');
+        if (icon) icon.textContent = 'menu';
+      });
+    });
+    
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        const icon = navToggle.querySelector('.material-icons');
+        if (icon) icon.textContent = 'menu';
+      }
+    });
+    
+    // Cerrar menú al redimensionar ventana
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        const icon = navToggle.querySelector('.material-icons');
+        if (icon) icon.textContent = 'menu';
+      }
+    });
+  }
+
+  // ===================
+  // FORM VALIDATION
+  // ===================
+  
+  /**
+   * Validación del formulario de registro
+   */
+  function initFormValidation() {
+    const form = document.querySelector('.form');
+    if (!form) return;
+    
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Obtener valores
+      const nombre = document.getElementById('nombre')?.value.trim();
+      const email = document.getElementById('email')?.value.trim();
+      const institucion = document.getElementById('institucion')?.value.trim();
+      const area = document.getElementById('area')?.value;
+      const proyecto = document.getElementById('proyecto')?.value;
+      
+      // Validaciones básicas
+      let isValid = true;
+      let errorMessage = '';
+      
+      if (!nombre || nombre.length < 3) {
+        isValid = false;
+        errorMessage = 'Por favor ingresa tu nombre completo';
+      } else if (!email || !isValidEmail(email)) {
+        isValid = false;
+        errorMessage = 'Por favor ingresa un correo electrónico válido';
+      } else if (!institucion) {
+        isValid = false;
+        errorMessage = 'Por favor ingresa tu institución';
+      } else if (!area) {
+        isValid = false;
+        errorMessage = 'Por favor selecciona un área de interés';
+      } else if (!proyecto) {
+        isValid = false;
+        errorMessage = 'Por favor indica si presentarás proyecto';
+      }
+      
+      if (!isValid) {
+        showAlert(errorMessage, 'error');
+        return;
+      }
+      
+      // Si todo es válido
+      const formData = {
+        nombre,
+        email,
+        institucion,
+        area,
+        proyecto,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Aquí puedes enviar los datos a un servidor
+      console.log('Datos del formulario:', formData);
+      
+      // Simular envío exitoso
+      showAlert('¡Registro exitoso! Te hemos enviado un correo de confirmación.', 'success');
+      form.reset();
+      
+      // Opcional: redirigir o mostrar mensaje de éxito
+      setTimeout(() => {
+        // window.location.href = '#inicio';
+      }, 2000);
+    });
+  }
+  
+  /**
+   * Validar formato de email
+   */
+  function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+  
+  /**
+   * Mostrar alerta
+   */
+  function showAlert(message, type = 'info') {
+    // Remover alertas anteriores
+    const existingAlert = document.querySelector('.alert');
+    if (existingAlert) {
+      existingAlert.remove();
+    }
+    
+    // Crear nueva alerta
+    const alert = document.createElement('div');
+    alert.className = `alert alert--${type}`;
+    alert.innerHTML = `
+      <span class="material-icons alert__icon">${getAlertIcon(type)}</span>
+      <span>${message}</span>
+    `;
+    
+    // Insertar antes del formulario
+    const form = document.querySelector('.form');
+    if (form) {
+      form.parentNode.insertBefore(alert, form);
+      
+      // Scroll hacia la alerta
+      alert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      
+      // Auto-remover después de 5 segundos
+      setTimeout(() => {
+        alert.style.opacity = '0';
+        setTimeout(() => alert.remove(), 300);
+      }, 5000);
+    }
+  }
+  
+  /**
+   * Obtener icono según tipo de alerta
+   */
+  function getAlertIcon(type) {
+    const icons = {
+      info: 'info',
+      success: 'check_circle',
+      warning: 'warning',
+      error: 'error'
+    };
+    return icons[type] || 'info';
+  }
+
+  // ===================
+  // ACTIVE SECTION INDICATOR
+  // ===================
+  
+  /**
+   * Resalta el enlace de navegación activo según la sección visible
+   */
+  function initActiveSection() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav__link');
+    
+    if (sections.length === 0 || navLinks.length === 0) return;
+    
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '-100px 0px -66%'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          
+          // Remover clase active de todos los enlaces
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+          });
+          
+          // Añadir clase active al enlace correspondiente
+          const activeLink = document.querySelector(`.nav__link[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, observerOptions);
+    
+    sections.forEach(section => observer.observe(section));
+    
+    // Estilos para enlace activo
+    const style = document.createElement('style');
+    style.textContent = `
+      .nav__link.active {
+        background-color: rgba(255, 255, 255, 0.15);
+        font-weight: var(--font-weight-medium);
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // ===================
+  // CARD HOVER EFFECTS
+  // ===================
+  
+  /**
+   * Efecto 3D en las cards al mover el mouse
+   */
+  function initCardHoverEffects() {
+    const cards = document.querySelectorAll('.speaker-card');
+    
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+      });
+    });
+  }
+
+  // ===================
+  // COUNTDOWN TIMER (Opcional)
+  // ===================
+  
+  /**
+   * Cuenta regresiva para el evento
+   */
+  function initCountdown() {
+    const eventDate = new Date('2026-03-15T09:00:00').getTime();
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      
+      if (distance < 0) {
+        // El evento ya pasó
+        return;
+      }
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      console.log(`Faltan: ${days}d ${hours}h ${minutes}m ${seconds}s`);
+      
+      // Aquí puedes actualizar un elemento del DOM si lo tienes
+      // document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    
+    // Actualizar cada segundo (descomenta si quieres usar el countdown)
+    // setInterval(updateCountdown, 1000);
+    // updateCountdown();
+  }
+
+  // ===================
+  // PRELOAD IMAGES
+  // ===================
+  
+  /**
+   * Precarga de imágenes críticas
+   */
+  function preloadImages() {
+    const criticalImages = [
+      'images/hero/banner-hero.jpg',
+      'images/parallax/parallax-1.jpg',
+      'images/parallax/parallax-2.jpg'
+    ];
+    
+    criticalImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }
+
+  // ===================
+  // UTILS
+  // ===================
+  
+  /**
+   * Throttle function para optimizar eventos de scroll/resize
+   */
+  function throttle(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+  
+  /**
+   * Debounce function
+   */
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // ===================
+  // INITIALIZATION
+  // ===================
+  
+  /**
+   * Inicializar todas las funcionalidades
+   */
+  function init() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+      return;
+    }
+    
+    // Inicializar componentes
+    initMobileNav();
+    initFormValidation();
+    initActiveSection();
+    initCardHoverEffects();
+    // initCountdown(); // Descomentar si quieres usar el countdown
+    preloadImages();
+    
+    console.log('✅ Main scripts initialized');
+  }
+
+  // Ejecutar
+  init();
+
+})();

@@ -1,0 +1,358 @@
+/* ===================================
+   RESPONSIVE DESIGN - CITE 2026
+   Mobile First Approach
+   =================================== */
+
+/* ===================
+   MOBILE STYLES (Base)
+   Max 480px
+   =================== */
+@media (max-width: 480px) {
+  /* Typography */
+  .hero__title {
+    font-size: 28px;
+  }
+  
+  .hero__subtitle {
+    font-size: 16px;
+  }
+  
+  .section__title {
+    font-size: 24px;
+  }
+  
+  .parallax-divider__title {
+    font-size: 24px;
+  }
+  
+  /* Spacing */
+  .section {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  /* Navigation */
+  .nav__logo-img {
+    height: 36px;
+  }
+  
+  .nav__title {
+    font-size: 18px;
+  }
+  
+  .nav__subtitle {
+    font-size: 9px;
+  }
+  
+  /* Buttons */
+  .btn--large {
+    padding: 12px var(--spacing-lg);
+    font-size: 14px;
+  }
+  
+  /* Cards */
+  .card {
+    padding: var(--spacing-md);
+  }
+  
+  /* Form */
+  .form {
+    padding: var(--spacing-lg);
+  }
+  
+  /* Footer */
+  .footer__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+/* ===================
+   TABLET STYLES
+   481px - 768px
+   =================== */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Navigation */
+  .nav__toggle {
+    display: block;
+  }
+  
+  .nav__links {
+    position: fixed;
+    top: 72px;
+    right: -100%;
+    width: 280px;
+    height: calc(100vh - 72px);
+    background-color: var(--primary-dark);
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    gap: 0;
+    box-shadow: var(--shadow-8);
+    transition: right var(--transition-normal);
+  }
+  
+  .nav__links.active {
+    right: 0;
+  }
+  
+  .nav__item {
+    width: 100%;
+  }
+  
+  .nav__link {
+    width: 100%;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+  }
+  
+  /* Hero */
+  .hero__title {
+    font-size: 36px;
+  }
+  
+  .hero__subtitle {
+    font-size: 20px;
+  }
+  
+  /* Grids */
+  .objectives__grid,
+  .topics__grid,
+  .speakers__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Parallax */
+  .parallax-divider {
+    min-height: 300px;
+  }
+  
+  .parallax-divider__title {
+    font-size: 32px;
+  }
+}
+
+/* ===================
+   SMALL DESKTOP
+   769px - 1024px
+   =================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Grids con 2 columnas */
+  .objectives__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .topics__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .speakers__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Hero */
+  .hero__title {
+    font-size: 42px;
+  }
+  
+  .hero__subtitle {
+    font-size: 22px;
+  }
+}
+
+/* ===================
+   LARGE DESKTOP
+   1025px+
+   =================== */
+@media (min-width: 1025px) {
+  /* Grids con 3 columnas */
+  .objectives__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .topics__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .speakers__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Hero más grande */
+  .hero {
+    min-height: 700px;
+  }
+  
+  .hero__title {
+    font-size: 56px;
+  }
+  
+  .hero__subtitle {
+    font-size: 28px;
+  }
+  
+  /* Parallax divider más alto */
+  .parallax-divider {
+    min-height: 500px;
+  }
+}
+
+/* ===================
+   ULTRA WIDE
+   1440px+
+   =================== */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  .hero__title {
+    font-size: 64px;
+  }
+  
+  .parallax-divider__title {
+    font-size: 56px;
+  }
+  
+  /* Opcionalmente 4 columnas en grids */
+  .speakers__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===================
+   LANDSCAPE ORIENTATION
+   Para móviles en horizontal
+   =================== */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    min-height: 400px;
+  }
+  
+  .hero__title {
+    font-size: 32px;
+  }
+  
+  .hero__subtitle {
+    font-size: 18px;
+  }
+  
+  .parallax-divider {
+    min-height: 300px;
+  }
+  
+  .section {
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
+/* ===================
+   PRINT STYLES
+   Para impresión
+   =================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  .header,
+  .nav,
+  .footer,
+  .btn,
+  .parallax-divider {
+    display: none;
+  }
+  
+  .section {
+    page-break-inside: avoid;
+  }
+  
+  h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* ===================
+   TOUCH DEVICE OPTIMIZATIONS
+   =================== */
+@media (hover: none) and (pointer: coarse) {
+  /* Aumentar áreas táctiles */
+  .btn,
+  .nav__link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remover efectos hover en dispositivos táctiles */
+  .card:hover {
+    transform: none;
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+  
+  /* Desactivar parallax en dispositivos táctiles */
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+
+/* ===================
+   HIGH DPI SCREENS
+   Pantallas Retina
+   =================== */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  /* Aquí puedes cargar imágenes de mayor resolución */
+  /* Ejemplo:
+  .hero::before {
+    background-image: url('../images/hero/banner-hero@2x.jpg');
+  }
+  */
+}
+
+/* ===================
+   DARK MODE SUPPORT
+   (Opcional - para futuro)
+   =================== */
+@media (prefers-color-scheme: dark) {
+  /* 
+  :root {
+    --surface-white: #1E1E1E;
+    --surface-gray: #121212;
+    --text-primary: rgba(255, 255, 255, 0.87);
+    --text-secondary: rgba(255, 255, 255, 0.6);
+  }
+  */
+}
+
+/* ===================
+   ACCESSIBILITY
+   High Contrast Mode
+   =================== */
+@media (prefers-contrast: high) {
+  .btn,
+  .card,
+  .nav__link {
+    border: 2px solid currentColor;
+  }
+  
+  .hero__overlay,
+  .parallax-divider__overlay {
+    opacity: 0.9;
+  }
+}
