@@ -35,10 +35,6 @@
                 </a>
                 
                 <div style="display: flex; align-items: center; gap: 12px;">
-                    <button id="themeToggle" class="btn--icon" aria-label="Cambiar tema" style="background: transparent; border: 1px solid var(--border-light); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-primary); transition: all 0.2s;">
-                        <span class="material-symbols-rounded theme-icon-light">light_mode</span>
-                        <span class="material-symbols-rounded theme-icon-dark" style="display: none;">dark_mode</span>
-                    </button>
                     <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
                         <span class="hamburger">
                             <span class="hamburger__line"></span>
@@ -310,6 +306,11 @@
             </div>
         </div>
     </footer>
+
+    <button id="themeToggle" class="theme-toggle btn--icon" aria-label="Cambiar tema">
+        <span class="material-symbols-rounded theme-icon-light">light_mode</span>
+        <span class="material-symbols-rounded theme-icon-dark" style="display: none;">dark_mode</span>
+    </button>
 
     <script src="js/main.js"></script>
     <script src="js/parallax.js"></script>

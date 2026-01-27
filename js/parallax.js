@@ -8,61 +8,6 @@
   
   
   
-  function initMobileNav() {
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (!navToggle || !navLinks) return;
-    
-    
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      
-      
-      const icon = navToggle.querySelector('.material-icons');
-      if (icon) {
-        icon.textContent = navLinks.classList.contains('active') ? 'close' : 'menu';
-      }
-      
-      
-      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    });
-    
-    
-    const links = navLinks.querySelectorAll('.nav__link');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        const icon = navToggle.querySelector('.material-icons');
-        if (icon) icon.textContent = 'menu';
-      });
-    });
-    
-    
-    document.addEventListener('click', (e) => {
-      if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        const icon = navToggle.querySelector('.material-icons');
-        if (icon) icon.textContent = 'menu';
-      }
-    });
-    
-    
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        const icon = navToggle.querySelector('.material-icons');
-        if (icon) icon.textContent = 'menu';
-      }
-    });
-  }
-
   
   
   
@@ -351,7 +296,6 @@
     }
     
     
-    initMobileNav();
     initFormValidation();
     initActiveSection();
     initCardHoverEffects();
