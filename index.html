@@ -9,9 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <link rel="stylesheet" href="css/normalize.css">
@@ -227,6 +225,17 @@
                     </div>
                 </div>
 
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="speaker-card__image">
+                        <img src="images/speakers/ponente-6.png" alt="Dr. José Luis Alvarez" loading="lazy">
+                    </div>
+                    <div class="speaker-card__content">
+                        <p class="speaker-card__title">Ingeniería</p>
+                        <h3 class="speaker-card__name">Dr. Roilhi Frajo Ibarra Hernández</h3>
+                        <p class="speaker-card__bio">Integración de la IA en comunicaciones inalámbricas de última generación</p>
+                    </div>
+                </div>
+
                 <div class="speaker-card" data-aos="fade-up" data-aos-delay="350">
                     <div class="speaker-card__image">
                         <img src="images/speakers/ponente-7.jpg" alt="Dr. Victor Castillo" loading="lazy">
@@ -298,31 +307,6 @@
             once: true,
             offset: 50,
             easing: 'ease-out-cubic'
-        });
-
-        // Toggle de tema oscuro/claro
-        const themeToggle = document.getElementById('themeToggle');
-        const lightIcon = document.querySelector('.theme-icon-light');
-        const darkIcon = document.querySelector('.theme-icon-dark');
-        
-        // Verificar preferencia guardada o del sistema
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            document.body.classList.add('dark-theme');
-            lightIcon.style.display = 'none';
-            darkIcon.style.display = 'block';
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            const isDark = document.body.classList.contains('dark-theme');
-            
-            lightIcon.style.display = isDark ? 'none' : 'block';
-            darkIcon.style.display = isDark ? 'block' : 'none';
-            
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     </script>
 </body>

@@ -1,21 +1,12 @@
-/**
- * MAIN JAVASCRIPT - CITE 2026
- * Funcionalidad general y Modo Oscuro
- */
-
 (function() {
   'use strict';
 
-  // ===================
-  // DARK MODE LOGIC
-  // ===================
   function initTheme() {
     const themeToggle = document.getElementById('themeToggle');
     const iconLight = themeToggle.querySelector('.theme-icon-light');
     const iconDark = themeToggle.querySelector('.theme-icon-dark');
+    const logoImg = document.querySelector('.nav__logo-img');
     const html = document.documentElement;
-
-    // 1. Verificar preferencia guardada o del sistema
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -25,23 +16,22 @@
       enableLightMode();
     }
 
-    // 2. Función para activar Dark Mode
     function enableDarkMode() {
       html.setAttribute('data-theme', 'dark');
       iconLight.style.display = 'none';
       iconDark.style.display = 'block';
+      if (logoImg) logoImg.src = 'images/logos/logo-cite-dark.png';
       localStorage.setItem('theme', 'dark');
     }
 
-    // 3. Función para activar Light Mode
     function enableLightMode() {
       html.setAttribute('data-theme', 'light');
       iconLight.style.display = 'block';
       iconDark.style.display = 'none';
+      if (logoImg) logoImg.src = 'images/logos/logo-cite.png';
       localStorage.setItem('theme', 'light');
     }
 
-    // 4. Event Listener del Botón
     themeToggle.addEventListener('click', () => {
       if (html.getAttribute('data-theme') === 'dark') {
         enableLightMode();
@@ -51,9 +41,6 @@
     });
   }
 
-  // ===================
-  // MOBILE NAVIGATION
-  // ===================
   function initMobileNav() {
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
@@ -85,9 +72,6 @@
     });
   }
 
-  // ===================
-  // ACTIVE SECTION & ANIMATIONS
-  // ===================
   function initActiveSection() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav__link');
@@ -123,20 +107,16 @@
     });
   }
 
-  // ===================
-  // INIT
-  // ===================
   function init() {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
       return;
     }
-    initTheme(); // Iniciar tema primero para evitar parpadeos
+    initTheme();
     initMobileNav();
     initActiveSection();
     initCardHoverEffects();
   }
 
   init();
-
 })();
