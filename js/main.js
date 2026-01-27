@@ -69,11 +69,10 @@
     const navOverlay = document.getElementById('navOverlay');
     
     if (!navToggle || !navLinks) return;
-    
-    let isMenuOpen = false;
+    if (navToggle.dataset.navBound === 'true') return;
+    navToggle.dataset.navBound = 'true';
     
     function openMenu() {
-      isMenuOpen = true;
       navToggle.classList.add('active');
       navToggle.setAttribute('aria-expanded', 'true');
       navLinks.classList.add('active');
@@ -82,7 +81,6 @@
     }
     
     function closeMenu() {
-      isMenuOpen = false;
       navToggle.classList.remove('active');
       navToggle.setAttribute('aria-expanded', 'false');
       navLinks.classList.remove('active');
@@ -91,7 +89,7 @@
     }
     
     function toggleMenu() {
-      if (isMenuOpen) {
+      if (navLinks.classList.contains('active')) {
         closeMenu();
       } else {
         openMenu();
@@ -99,7 +97,11 @@
     }
     
     
-    navToggle.addEventListener('click', toggleMenu);
+    navToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      toggleMenu();
+    });
     
     
     if (navOverlay) {
@@ -114,7 +116,7 @@
     
     
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isMenuOpen) {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
         closeMenu();
         navToggle.focus();
       }
@@ -122,7 +124,7 @@
     
     
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && isMenuOpen) {
+      if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
         closeMenu();
       }
     });
