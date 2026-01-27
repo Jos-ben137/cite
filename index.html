@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CITE 2026 - Coloquio de Ingeniería y Tecnologías Emergentes. Espacio de encuentro académico para conocer tendencias en innovación y desarrollo tecnológico.">
-    <title>CITE 2026 - Coloquio de Ingeniería y Tecnologías Emergentes</title>
+    <meta name="description" content="CITE 2026 - Coloquio de Ingeniería y Tecnologías Emergentes. Innovación y desarrollo tecnológico en Colima.">
+    <title>CITE 2026 | Coloquio de Ingeniería</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -17,31 +19,28 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/sections.css">
-    <link rel="stylesheet" href="css/parallax.css">
     <link rel="stylesheet" href="css/responsive.css">
-</head>
+    </head>
 <body>
     
     <header class="header">
         <nav class="nav">
             <div class="container nav__container">
-                <div class="nav__logo">
-                    <img src="images/logos/logo-cite.png" alt="CITE 2026" class="nav__logo-img">
+                <a href="#" class="nav__logo" style="text-decoration: none;">
+                    <img src="images/logos/logo-cite.png" alt="CITE 2026" class="nav__logo-img" height="40">
                     <div class="nav__logo-text">
-                        <h1 class="nav__title">CITE 2026</h1>
-                        <span class="nav__subtitle">Coloquio de Ingeniería y Tecnologías Emergentes</span>
+                        <span class="nav__title">CITE 2026</span>
                     </div>
-                </div>
+                </a>
                 
-                <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-                    <span class="material-icons">menu</span>
+                <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+                    <span class="material-symbols-rounded" style="color: var(--text-primary);">menu</span>
                 </button>
                 
                 <ul class="nav__links" id="navLinks">
                     <li class="nav__item"><a href="#inicio" class="nav__link">Inicio</a></li>
                     <li class="nav__item"><a href="#sobre" class="nav__link">Sobre CITE</a></li>
-                    <li class="nav__item"><a href="#objetivos" class="nav__link">Objetivos</a></li>
-                    <li class="nav__item"><a href="#tematicas" class="nav__link">Áreas</a></li>
+                    <li class="nav__item"><a href="#tematicas" class="nav__link">Temáticas</a></li>
                     <li class="nav__item"><a href="#programa" class="nav__link">Programa</a></li>
                     <li class="nav__item"><a href="#ponentes" class="nav__link">Ponentes</a></li>
                     <li class="nav__item"><a href="#registro" class="nav__link nav__link--cta">Registro</a></li>
@@ -50,115 +49,181 @@
         </nav>
     </header>
 
-    <section id="inicio" class="hero parallax" data-speed="0.5">
-        <div class="hero__overlay"></div>
+    <section id="inicio" class="hero">
         <div class="container hero__container">
-            <h2 class="hero__title" data-aos="fade-up">Coloquio de Ingeniería y Tecnologías Emergentes</h2>
-            <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="100">Innovación, Investigación y Desarrollo Tecnológico</p>
-            <p class="hero__date" data-aos="fade-up" data-aos-delay="200">
-                <span class="material-icons hero__icon">event</span>
+            <div data-aos="fade-down" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--surface-off-white); border: 1px solid var(--border-light); border-radius: 20px; color: var(--text-secondary); font-weight: 500; font-size: 14px; margin-bottom: 24px;">
+                <span class="material-symbols-rounded" style="font-size: 16px; color: var(--accent-color);">calendar_today</span>
                 15 - 17 de Marzo, 2026
+            </div>
+
+            <h1 class="hero__title" data-aos="fade-up">
+                Ingeniería y <br>
+                <span style="color: var(--tech-cyan);">Tecnologías Emergentes</span>
+            </h1>
+            
+            <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="100">
+                Un espacio de convergencia para la innovación, la inteligencia artificial y el desarrollo tecnológico en la Universidad de Colima.
             </p>
-            <p class="hero__location" data-aos="fade-up" data-aos-delay="250">
-                <span class="material-icons hero__icon">place</span>
-                Ciudad de Villa de Álvarez, Colima, México
-            </p>
-            <a href="#registro" class="btn btn--primary btn--large" data-aos="fade-up" data-aos-delay="300">
-                Regístrate Ahora
-                <span class="material-icons btn__icon">arrow_forward</span>
-            </a>
+
+            <div class="hero__info-bar" data-aos="fade-up" data-aos-delay="200">
+                <div class="hero__info-item">
+                    <span class="material-symbols-rounded" style="color: var(--accent-color)">location_on</span>
+                    Villa de Álvarez, Colima
+                </div>
+                <div class="hero__info-item">
+                    <span class="material-symbols-rounded" style="color: var(--accent-color)">school</span>
+                    FIME - UdeC
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;" data-aos="fade-up" data-aos-delay="300">
+                <a href="#registro" class="btn btn--primary btn--large">
+                    Registrarse Ahora
+                    <span class="material-symbols-rounded btn__icon">arrow_forward</span>
+                </a>
+                <a href="#programa" class="btn btn--outline btn--large">
+                    Ver Agenda
+                </a>
+            </div>
         </div>
     </section>
 
-    <section id="sobre" class="about section">
+    <section id="sobre" class="section section--gray">
         <div class="container">
-            <h2 class="section__title" data-aos="fade-up">Sobre el CITE</h2>
+            <h2 class="section__title" data-aos="fade-up">Nuestro Propósito</h2>
             <p class="section__description" data-aos="fade-up" data-aos-delay="100">
-                El Coloquio de Ingeniería y Tecnologías Emergentes (CITE) es un espacio de encuentro y reflexión académica diseñado para conocer las tendencias actuales en ingeniería y tecnologías emergentes.
+                El Coloquio de Ingeniería y Tecnologías Emergentes (CITE) es un punto de encuentro académico diseñado para explorar las fronteras de la tecnología moderna, fomentando el intercambio de ideas entre estudiantes, investigadores y expertos de la industria.
             </p>
         </div>
     </section>
 
-    <section id="tematicas" class="topics section">
+    <section id="tematicas" class="section">
         <div class="container">
-            <h2 class="section__title section__title--light" data-aos="fade-up">Áreas Temáticas</h2>
+            <h2 class="section__title" data-aos="fade-up">Áreas de Enfoque</h2>
+            <p class="section__description">Explorando los pilares de la cuarta revolución industrial.</p>
+            
             <div class="topics__grid">
-                <div class="card card--topic" data-aos="fade-up" data-aos-delay="100">
-                    <span class="material-icons card__icon-large">psychology</span>
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="material-symbols-rounded card__icon-large">psychology</span>
                     <h3 class="card__title">Inteligencia Artificial</h3>
-                    <p class="card__text">Machine Learning, Deep Learning, IA Generativa</p>
+                    <p class="card__text">Machine Learning, Redes Neuronales y la ética en la IA Generativa.</p>
                 </div>
-                <div class="card card--topic" data-aos="fade-up" data-aos-delay="200">
-                    <span class="material-icons card__icon-large">devices</span>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="material-symbols-rounded card__icon-large">hub</span>
                     <h3 class="card__title">Internet de las Cosas</h3>
-                    <p class="card__text">IoT, Smart Cities, Automatización</p>
+                    <p class="card__text">Conectividad, Smart Cities y protocolos de comunicación industrial.</p>
                 </div>
-                <div class="card card--topic" data-aos="fade-up" data-aos-delay="300">
-                    <span class="material-icons card__icon-large">security</span>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="material-symbols-rounded card__icon-large">encrypted</span>
                     <h3 class="card__title">Ciberseguridad</h3>
-                    <p class="card__text">Seguridad Informática, Blockchain, Criptografía</p>
+                    <p class="card__text">Protección de datos, Blockchain y seguridad en infraestructuras críticas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="ponentes" class="speakers section">
+    <section id="programa" class="section section--gray">
         <div class="container">
-            <h2 class="section__title" data-aos="fade-up">Ponentes Invitados</h2>
+            <h2 class="section__title" data-aos="fade-up">Agenda General</h2>
+            <div class="schedule__days">
+                <div class="day-card" data-aos="fade-up">
+                    <div class="day-card__header">
+                        <span class="material-symbols-rounded day-card__icon">calendar_month</span>
+                        <h3 class="day-card__title">Día 1: Apertura e IA</h3>
+                    </div>
+                    <div class="day-card__content">
+                        <div class="event">
+                            <span class="event__time">09:00 AM</span>
+                            <div class="event__info">
+                                <strong>Inauguración Oficial</strong>
+                                <p class="event__description">Bienvenida por autoridades universitarias.</p>
+                            </div>
+                        </div>
+                        <div class="event event--highlight">
+                            <span class="event__time">10:00 AM</span>
+                            <div class="event__info">
+                                <strong>Conferencia Magistral: IA Explicable</strong>
+                                <p class="event__description">Dr. Fermín Maciel Barboza</p>
+                            </div>
+                        </div>
+                        <div class="event event--break">
+                            <span class="event__time">11:30 AM</span>
+                            <div class="event__info">Receso y Networking</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="#" class="btn btn--outline">Descargar Programa Completo (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="ponentes" class="section">
+        <div class="container">
+            <h2 class="section__title" data-aos="fade-up">Ponentes Destacados</h2>
             <div class="speakers__grid">
                 <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="speaker-card__image">
                         <img src="images/speakers/ponente-1.jpg" alt="Dr. Fermín Maciel" loading="lazy">
                     </div>
                     <div class="speaker-card__content">
-                        <h3 class="speaker-card__name">Dr. Fermín Marcelo Rubén Maciel Barboza</h3>
-                        <p class="speaker-card__title"><strong>Conferencia:</strong> Una mirada didáctica a la IA explicable</p>
+                        <p class="speaker-card__title">Inteligencia Artificial</p>
+                        <h3 class="speaker-card__name">Dr. Fermín Maciel</h3>
+                        <p class="speaker-card__bio">Experto en IA Explicable y modelos didácticos.</p>
                     </div>
                 </div>
+                
                 <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="speaker-card__image">
-                        <img src="images/speakers/ponente-4.jpg" alt="Dr. Jorge Simón" loading="lazy">
+                        <img src="images/speakers/ponente-2.jpg" alt="Dr. Walter Mata" loading="lazy">
                     </div>
                     <div class="speaker-card__content">
-                        <h3 class="speaker-card__name">Dr. Jorge Simón Rodríguez (UASLP)</h3>
-                        <p class="speaker-card__title"><strong>Conferencia:</strong> Sistemas y sensores de radiofrecuencia</p>
+                        <p class="speaker-card__title">IA Generativa</p>
+                        <h3 class="speaker-card__name">Dr. Walter Mata</h3>
+                        <p class="speaker-card__bio">IA generativa al servicio de la ciencia.</p>
                     </div>
                 </div>
+
                 <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="speaker-card__image">
                         <img src="images/speakers/ponente-3.jpg" alt="Dr. Francisco Castillo" loading="lazy">
                     </div>
                     <div class="speaker-card__content">
-                        <h3 class="speaker-card__name">Dr. Francisco R. Castillo Soria (UASLP)</h3>
-                        <p class="speaker-card__title"><strong>Conferencia:</strong> Tecnologías candidatas para redes 6G</p>
+                        <p class="speaker-card__title">Telecomunicaciones</p>
+                        <h3 class="speaker-card__name">Dr. Francisco Castillo</h3>
+                        <p class="speaker-card__bio">Tecnologías para redes 6G.</p>
                     </div>
                 </div>
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="speaker-card__image">
-                        <img src="images/speakers/ponente-2.jpg" alt="Dr. Walter Mata" loading="lazy">
-                    </div>
-                    <div class="speaker-card__content">
-                        <h3 class="speaker-card__name">Dr. Walter Alexander Mata López</h3>
-                        <p class="speaker-card__title"><strong>Conferencia:</strong> IA generativa al servicio de la comunidad científica</p>
-                    </div>
+                
                 </div>
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="speaker-card__image">
-                        <img src="images/speakers/ponente-5.jpg" alt="Dr. José Alvarez" loading="lazy">
+        </div>
+    </section>
+
+    <section id="registro" class="section section--gray">
+        <div class="container container--sm">
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <h2 class="section__title" data-aos="fade-up">Registro</h2>
+                <p class="section__description" data-aos="fade-up" data-aos-delay="100">
+                    La entrada es libre. Regístrate para obtener tu constancia de participación.
+                </p>
+                
+                <div class="card" data-aos="fade-up" data-aos-delay="200" style="padding: 48px 32px; display: flex; flex-direction: column; align-items: center; gap: 24px; border: 1px solid var(--border-light); box-shadow: var(--shadow-md);">
+                    
+                    <div style="width: 64px; height: 64px; background: var(--surface-off-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                        <span class="material-symbols-rounded" style="font-size: 32px; color: var(--primary-color);">assignment_add</span>
                     </div>
-                    <div class="speaker-card__content">
-                        <h3 class="speaker-card__name">Dr. José Luis Alvarez Flores</h3>
-                        <p class="speaker-card__title"><strong>Conferencia:</strong> Dispositivos electrónicos en apoyo a la salud</p>
+
+                    <div>
+                        <h3 style="margin-bottom: 12px; font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">Formulario de Inscripción</h3>
+                        <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">Serás redirigido a Google Forms para completar tus datos de manera segura.</p>
                     </div>
-                </div>
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="speaker-card__image">
-                        <img src="images/speakers/ponente-7.jpg" alt="Dr. Victor Castillo" loading="lazy">
-                    </div>
-                    <div class="speaker-card__content">
-                        <h3 class="speaker-card__name">Dr. Victor Hugo Castillo Topete</h3>
-                        <p class="speaker-card__title"><strong>Conferencia:</strong> IA en apoyo a la toma de decisiones médicas</p>
-                    </div>
+
+                    <a href="https://docs.google.com/forms/..." target="_blank" class="btn btn--primary btn--large">
+                        Completar Registro
+                        <span class="material-symbols-rounded btn__icon">open_in_new</span>
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -166,21 +231,31 @@
 
     <footer class="footer">
         <div class="container footer__container">
+            <div class="grid grid--auto-fit" style="gap: 40px; margin-bottom: 40px;">
+                <div>
+                    <h4 class="footer__title">CITE 2026</h4>
+                    <p class="footer__text">Fomentando el futuro de la ingeniería en México.</p>
+                </div>
+                <div>
+                    <h4 class="footer__title">Contacto</h4>
+                    <p class="footer__text">cite@ucol.mx</p>
+                    <p class="footer__text">Km. 9 Carretera Colima-Coquimatlán</p>
+                </div>
+            </div>
             <div class="footer__bottom">
-                <p class="footer__copyright">&copy; 2026 CITE - Coloquio de Ingeniería y Tecnologías Emergentes.</p>
+                <p class="footer__copyright">&copy; 2026 Coloquio de Ingeniería y Tecnologías Emergentes. Facultad de Ingeniería Mecánica y Eléctrica.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/parallax.js"></script>
     <script src="js/main.js"></script>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1000,
+            duration: 800,
             once: true,
-            offset: 100
+            offset: 50,
+            easing: 'ease-out-cubic'
         });
     </script>
 </body>
