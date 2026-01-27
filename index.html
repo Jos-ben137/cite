@@ -6,24 +6,21 @@
     <meta name="description" content="CITE 2026 - Coloquio de Ingeniería y Tecnologías Emergentes. Espacio de encuentro académico para conocer tendencias en innovación y desarrollo tecnológico.">
     <title>CITE 2026 - Coloquio de Ingeniería y Tecnologías Emergentes</title>
     
-    <!-- Google Fonts - Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <!-- CSS Modular - El orden es importante -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/components.css"> <link rel="stylesheet" href="css/sections.css">
     <link rel="stylesheet" href="css/parallax.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     
-    <!-- Header Navigation -->
     <header class="header">
         <nav class="nav">
             <div class="container nav__container">
@@ -52,7 +49,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section con Parallax -->
     <section id="inicio" class="hero parallax" data-speed="0.5">
         <div class="hero__overlay"></div>
         <div class="container hero__container">
@@ -73,7 +69,6 @@
         </div>
     </section>
 
-    <!-- Sobre CITE -->
     <section id="sobre" class="about section">
         <div class="container">
             <h2 class="section__title" data-aos="fade-up">Sobre el CITE</h2>
@@ -83,7 +78,6 @@
         </div>
     </section>
 
-    <!-- Objetivos -->
     <section id="objetivos" class="objectives section section--gray">
         <div class="container">
             <h2 class="section__title" data-aos="fade-up">Objetivos del Coloquio</h2>
@@ -140,7 +134,6 @@
         </div>
     </section>
 
-    <!-- Parallax Divider 1 -->
     <div class="parallax-divider parallax" data-speed="0.3">
         <div class="parallax-divider__overlay"></div>
         <div class="container parallax-divider__content">
@@ -148,7 +141,6 @@
         </div>
     </div>
 
-    <!-- Áreas Temáticas -->
     <section id="tematicas" class="topics section">
         <div class="container">
             <h2 class="section__title section__title--light" data-aos="fade-up">Áreas Temáticas</h2>
@@ -193,13 +185,10 @@
         </div>
     </section>
 
-    <!-- Programa -->
     <section id="programa" class="schedule section section--gray">
         <div class="container">
             <h2 class="section__title" data-aos="fade-up">Programa del Evento</h2>
-            
             <div class="schedule__days">
-                <!-- Día 1 -->
                 <div class="day-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="day-card__header">
                         <span class="material-icons day-card__icon">calendar_today</span>
@@ -208,228 +197,34 @@
                     <div class="day-card__content">
                         <div class="event">
                             <span class="event__time">9:00 AM</span>
-                            <span class="event__description">Inauguración y conferencia magistral: "El futuro de la ingeniería en la era digital"</span>
-                        </div>
-                        <div class="event">
-                            <span class="event__time">11:00 AM</span>
-                            <span class="event__description">Panel: Inteligencia Artificial y sus aplicaciones en la industria</span>
-                        </div>
-                        <div class="event event--break">
-                            <span class="event__time">1:00 PM</span>
-                            <span class="event__description">Receso - Networking</span>
-                        </div>
-                        <div class="event">
-                            <span class="event__time">2:30 PM</span>
-                            <span class="event__description">Presentación de proyectos estudiantiles - Sesión 1</span>
-                        </div>
-                        <div class="event">
-                            <span class="event__time">4:30 PM</span>
-                            <span class="event__description">Taller: Introducción a Machine Learning</span>
+                            <span class="event__description">Inauguración y conferencia magistral</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Día 2 -->
-                <div class="day-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="day-card__header">
-                        <span class="material-icons day-card__icon">calendar_today</span>
-                        <h3 class="day-card__title">Día 2 - 16 de Marzo</h3>
-                    </div>
-                    <div class="day-card__content">
-                        <div class="event">
-                            <span class="event__time">9:00 AM</span>
-                            <span class="event__description">Conferencia: Internet de las Cosas y Ciudades Inteligentes</span>
-                        </div>
-                        <div class="event">
-                            <span class="event__time">11:00 AM</span>
-                            <span class="event__description">Mesa redonda: Ciberseguridad en la era digital</span>
-                        </div>
-                        <div class="event event--break">
-                            <span class="event__time">1:00 PM</span>
-                            <span class="event__description">Sesión de pósters y exhibición de proyectos</span>
-                        </div>
-                        <div class="event">
-                            <span class="event__time">3:00 PM</span>
-                            <span class="event__description">Talleres paralelos: Robótica / Desarrollo Web / Energías Renovables</span>
-                        </div>
-                        <div class="event">
-                            <span class="event__time">5:00 PM</span>
-                            <span class="event__description">Panel de egresados: Experiencias en la industria tecnológica</span>
-                        </div>
-                    </div>
                 </div>
-                
-                <!-- Día 3 -->
-                <div class="day-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="day-card__header">
-                        <span class="material-icons day-card__icon">calendar_today</span>
-                        <h3 class="day-card__title">Día 3 - 17 de Marzo</h3>
-                    </div>
-                    <div class="day-card__content">
-                        <div class="event">
-                            <span class="event__time">9:00 AM</span>
-                            <span class="event__description">Conferencia: Innovación y desarrollo tecnológico sustentable</span>
-                        </div>
-                        <div class="event">
-                            <span class="event__time">11:00 AM</span>
-                            <span class="event__description">Presentación de proyectos estudiantiles - Sesión 2</span>
-                        </div>
-                        <div class="event">
-                            <span class="event__time">1:00 PM</span>
-                            <span class="event__description">Conferencia de clausura: Tendencias emergentes en ingeniería</span>
-                        </div>
-                        <div class="event event--highlight">
-                            <span class="event__time">2:30 PM</span>
-                            <span class="event__description">Premiación de mejores proyectos y clausura</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Parallax Divider 2 -->
-    <div class="parallax-divider parallax parallax-divider--alt" data-speed="0.3">
-        <div class="parallax-divider__overlay"></div>
-        <div class="container parallax-divider__content">
-            <h3 class="parallax-divider__title">Conecta con expertos de la industria</h3>
-        </div>
-    </div>
-
-    <!-- Ponentes -->
-   <section id="ponentes" class="speakers section">
+    <section id="ponentes" class="speakers section">
     <div class="container">
         <h2 class="section__title" data-aos="fade-up">Ponentes Invitados</h2>
-        
         <div class="speakers__grid">
             <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="speaker-card__image">
-                    <img src="images/speakers/ponente-1.jpg" alt="Dr. Fermín Marcelo Rubén Maciel Barboza" loading="lazy">
+                    <img src="images/speakers/ponente-1.jpg" alt="Ponente" loading="lazy">
                 </div>
                 <div class="speaker-card__content">
-                    <h3 class="speaker-card__name">Dr. Fermín Marcelo Rubén Maciel Barboza</h3>
-                    <p class="speaker-card__title">Experto en [TU ÁREA]</p>
-                    <p class="speaker-card__bio">Especialista en [DESCRIPCIÓN]</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="speaker-card__image">
-                    <img src="images/speakers/ponente-2.jpg" alt="Dr. Walter Alexander Mata López" loading="lazy">
-                </div>
-                <div class="speaker-card__content">
-                    <h3 class="speaker-card__name">Dr. Walter Alexander Mata López</h3>
-                    <p class="speaker-card__title">Especialista en [TU ÁREA]</p>
-                    <p class="speaker-card__bio">Líder en [DESCRIPCIÓN]</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="speaker-card__image">
-                    <img src="images/speakers/ponente-3.jpg" alt="Dr. Francisco R. Castillo Soria" loading="lazy">
-                </div>
-                <div class="speaker-card__content">
-                    <h3 class="speaker-card__name">Dr. Francisco R. Castillo Soria</h3>
-                    <p class="speaker-card__title">Investigador en [TU ÁREA]</p>
-                    <p class="speaker-card__bio">Pionero en [DESCRIPCIÓN]</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="speaker-card__image">
-                    <img src="images/speakers/ponente-4.jpg" alt="Dr. Jorge Simón Rodríguez" loading="lazy">
-                </div>
-                <div class="speaker-card__content">
-                    <h3 class="speaker-card__name">Dr. Jorge Simón Rodríguez</h3>
-                    <p class="speaker-card__title">Líder en [TU ÁREA]</p>
-                    <p class="speaker-card__bio">Experto en [DESCRIPCIÓN]</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="speaker-card__image">
-                    <img src="images/speakers/ponente-5.jpg" alt="Dr. José Luis Alvarez Flores" loading="lazy">
-                </div>
-                <div class="speaker-card__content">
-                    <h3 class="speaker-card__name">Dr. José Luis Alvarez Flores</h3>
-                    <p class="speaker-card__title">Investigador en [TU ÁREA]</p>
-                    <p class="speaker-card__bio">Especialista en [DESCRIPCIÓN]</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="speaker-card__image">
-                    <img src="images/speakers/ponente-6.jpg" alt="Dr. Roilhi Ibarra Hernández" loading="lazy">
-                </div>
-                <div class="speaker-card__content">
-                    <h3 class="speaker-card__name">Dr. Roilhi Ibarra Hernández</h3>
-                    <p class="speaker-card__title">Experto en [TU ÁREA]</p>
-                    <p class="speaker-card__bio">Líder en [DESCRIPCIÓN]</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="speaker-card__image">
-                    <img src="images/speakers/ponente-7.jpg" alt="Dr. Victor Hugo Castillo Topete" loading="lazy">
-                </div>
-                <div class="speaker-card__content">
-                    <h3 class="speaker-card__name">Dr. Victor Hugo Castillo Topete</h3>
-                    <p class="speaker-card__title">Arquitecto de [TU ÁREA]</p>
-                    <p class="speaker-card__bio">Especialista en [DESCRIPCIÓN]</p>
+                    <h3 class="speaker-card__name">Ponente Invitado</h3>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-    <!-- Registro -->
     <section id="registro" class="registration section section--gray">
         <div class="container">
             <h2 class="section__title" data-aos="fade-up">Registro CITE 2026</h2>
-            <p class="section__description" data-aos="fade-up" data-aos-delay="100">
-                Asegura tu participación en el coloquio y forma parte de este encuentro académico
-            </p>
-            
             <form class="form" data-aos="fade-up" data-aos-delay="200">
-                <div class="form__group">
-                    <label for="nombre" class="form__label">Nombre completo *</label>
-                    <input type="text" id="nombre" class="form__input" required>
-                </div>
-                
-                <div class="form__group">
-                    <label for="email" class="form__label">Correo electrónico institucional *</label>
-                    <input type="email" id="email" class="form__input" required>
-                </div>
-                
-                <div class="form__group">
-                    <label for="institucion" class="form__label">Universidad/Institución *</label>
-                    <input type="text" id="institucion" class="form__input" required>
-                </div>
-                
-                <div class="form__group">
-                    <label for="area" class="form__label">Área de interés *</label>
-                    <select id="area" class="form__select" required>
-                        <option value="">Selecciona tu área de interés</option>
-                        <option value="ia">Inteligencia Artificial</option>
-                        <option value="iot">Internet de las Cosas</option>
-                        <option value="ciberseguridad">Ciberseguridad</option>
-                        <option value="energia">Energías Renovables</option>
-                        <option value="robotica">Robótica y Automatización</option>
-                        <option value="software">Desarrollo de Software</option>
-                        <option value="otra">Otra área de ingeniería</option>
-                    </select>
-                </div>
-                
-                <div class="form__group">
-                    <label for="proyecto" class="form__label">¿Presentarás proyecto? *</label>
-                    <select id="proyecto" class="form__select" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="si-oral">Sí, presentación oral</option>
-                        <option value="si-poster">Sí, póster</option>
-                        <option value="no">No presentaré proyecto</option>
-                    </select>
-                </div>
-                
                 <button type="submit" class="btn btn--primary btn--large btn--full">
                     Enviar Registro
                     <span class="material-icons btn__icon">send</span>
@@ -438,44 +233,24 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container footer__container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3 class="footer__title">CITE 2026</h3>
-                    <p class="footer__text">Coloquio de Ingeniería y Tecnologías Emergentes</p>
-                </div>
-                
-                <div class="footer__section">
-                    <h3 class="footer__title">Contacto</h3>
-                    <p class="footer__text">
-                        <span class="material-icons footer__icon">email</span>
-                        cite@universidad.edu
-                    </p>
-                    <p class="footer__text">
-                        <span class="material-icons footer__icon">phone</span>
-                        +52 (312) 123-4567
-                    </p>
-                </div>
-                
-                <div class="footer__section">
-                    <h3 class="footer__title">Ubicación</h3>
-                    <p class="footer__text">
-                        <span class="material-icons footer__icon">place</span>
-                        Ciudad de Villa de Álvarez<br>Colima, México
-                    </p>
-                </div>
-            </div>
-            
             <div class="footer__bottom">
                 <p class="footer__copyright">&copy; 2026 CITE - Coloquio de Ingeniería y Tecnologías Emergentes. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="js/parallax.js"></script>
     <script src="js/main.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
