@@ -1,358 +1,200 @@
 /* ===================================
-   RESPONSIVE DESIGN - CITE 2026
-   Mobile First Approach
+   RESPONSIVE - CITE 2026
+   Ajustes para móviles y tabletas
    =================================== */
 
-/* ===================
-   MOBILE STYLES (Base)
-   Max 480px
-   =================== */
-@media (max-width: 480px) {
-  /* Typography */
-  .hero__title {
-    font-size: 28px;
-  }
+/* --- TABLET Y MÓVIL (Menor a 1024px) --- */
+@media (max-width: 1024px) {
   
-  .hero__subtitle {
-    font-size: 16px;
-  }
-  
-  .section__title {
-    font-size: 24px;
-  }
-  
-  .parallax-divider__title {
-    font-size: 24px;
-  }
-  
-  /* Spacing */
-  .section {
-    padding: var(--spacing-2xl) 0;
-  }
-  
+  /* Ajuste de contenedores */
   .container {
-    padding: 0 var(--spacing-sm);
+    padding: 0 24px; /* Un poco más de margen lateral */
   }
-  
-  /* Navigation */
-  .nav__logo-img {
-    height: 36px;
-  }
-  
-  .nav__title {
-    font-size: 18px;
-  }
-  
-  .nav__subtitle {
-    font-size: 9px;
-  }
-  
-  /* Buttons */
-  .btn--large {
-    padding: 12px var(--spacing-lg);
-    font-size: 14px;
-  }
-  
-  /* Cards */
-  .card {
-    padding: var(--spacing-md);
-  }
-  
-  /* Form */
-  .form {
-    padding: var(--spacing-lg);
-  }
-  
-  /* Footer */
-  .footer__content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+
+  /* Títulos un poco más pequeños */
+  .section__title {
+    font-size: 2rem;
   }
 }
 
-/* ===================
-   TABLET STYLES
-   481px - 768px
-   =================== */
-@media (min-width: 481px) and (max-width: 768px) {
-  /* Navigation */
-  .nav__toggle {
-    display: block;
-  }
+/* --- MÓVIL (Menor a 768px) --- */
+@media (max-width: 768px) {
+
+  /* ===================
+     NAVEGACIÓN MÓVIL
+     =================== */
   
+  /* Mostrar el botón de menú (hamburguesa) */
+  .nav__toggle {
+    display: block; /* Se había ocultado en sections.css */
+    z-index: 1002;
+    position: relative;
+  }
+
+  /* El menú de enlaces */
   .nav__links {
     position: fixed;
-    top: 72px;
-    right: -100%;
-    width: 280px;
-    height: calc(100vh - 72px);
-    background-color: var(--primary-dark);
-    flex-direction: column;
-    padding: var(--spacing-lg);
-    gap: 0;
-    box-shadow: var(--shadow-8);
-    transition: right var(--transition-normal);
-  }
-  
-  .nav__links.active {
+    top: 0;
     right: 0;
+    height: 100vh;
+    width: 75%; /* Ocupa 3/4 de la pantalla */
+    max-width: 300px;
+    background-color: var(--surface-white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 24px 24px; /* Espacio arriba para no chocar con el botón */
+    box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+    transform: translateX(100%); /* Oculto a la derecha por defecto */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001;
   }
-  
+
+  /* Clase que agrega JS cuando abres el menú */
+  .nav__links.active {
+    transform: translateX(0); /* Entra a la pantalla */
+  }
+
+  /* Estilo de los enlaces en móvil */
   .nav__item {
     width: 100%;
+    margin-bottom: 8px;
   }
-  
+
   .nav__link {
+    display: block;
     width: 100%;
-    padding: var(--spacing-md);
+    padding: 12px 16px;
+    font-size: 1.1rem; /* Texto más grande para dedos */
     border-radius: var(--border-radius-md);
   }
+
+  .nav__link:active {
+    background-color: var(--surface-off-white);
+  }
+
+  /* Botón CTA en móvil */
+  .nav__link--cta {
+    text-align: center;
+    margin-top: 16px;
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  /* ===================
+     SECCIONES Y ESPACIADO
+     =================== */
   
-  /* Hero */
+  .section {
+    padding: 48px 0; /* Menos padding vertical en móvil */
+  }
+
+  .section__description {
+    margin-bottom: 40px;
+    font-size: 1rem;
+  }
+
+  /* ===================
+     HERO
+     =================== */
+  
+  .hero {
+    min-height: auto; /* Ya no forzar pantalla completa */
+    padding: 120px 0 60px; /* Más padding arriba por el header fijo */
+    text-align: center;
+  }
+
   .hero__title {
-    font-size: 36px;
+    font-size: 2.5rem; /* Ajuste manual por seguridad */
+    margin-bottom: 16px;
   }
-  
+
   .hero__subtitle {
-    font-size: 20px;
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+
+  .hero__info-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
   
-  /* Grids */
-  .objectives__grid,
+  .hero__info-item {
+    width: 100%; /* Ocupar todo el ancho disponible */
+    justify-content: center;
+    max-width: 300px;
+  }
+
+  /* Botones del Hero uno debajo del otro */
+  .hero .btn {
+    width: 100%;
+    max-width: 300px; /* Que no se vean gigantes */
+    margin-bottom: 12px;
+  }
+  
+  /* Contenedor de botones flex a columna */
+  .hero > .container > div:last-child {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ===================
+     GRID ADJUSTMENTS
+     =================== */
+  
+  /* Forzar una sola columna si es necesario, 
+     aunque el grid auto-fit suele hacerlo solo */
   .topics__grid,
   .speakers__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Una columna */
+    gap: 24px;
   }
   
-  /* Parallax */
-  .parallax-divider {
-    min-height: 300px;
+  /* Ajustes en Cards */
+  .card, 
+  .speaker-card {
+    max-width: 400px; /* Evitar que se estiren demasiado */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ===================
+     PROGRAMA (Timeline)
+     =================== */
+  
+  .event {
+    flex-direction: column; /* Hora arriba, evento abajo */
+    gap: 8px;
+  }
+
+  .event__time {
+    color: var(--accent-color); /* Resaltar hora */
+    font-size: 0.85rem;
+    background: rgba(0,0,0,0.03);
+    padding: 4px 8px;
+    border-radius: 4px;
+    align-self: flex-start;
   }
   
-  .parallax-divider__title {
-    font-size: 32px;
+  /* ===================
+     FOOTER
+     =================== */
+  
+  .footer__container .grid {
+    grid-template-columns: 1fr; /* Una columna */
+    text-align: center;
+    gap: 32px;
   }
 }
 
-/* ===================
-   SMALL DESKTOP
-   769px - 1024px
-   =================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Grids con 2 columnas */
-  .objectives__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .topics__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .speakers__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  /* Hero */
+/* --- MÓVILES PEQUEÑOS (Menor a 380px) --- */
+@media (max-width: 380px) {
   .hero__title {
-    font-size: 42px;
+    font-size: 2rem;
   }
   
-  .hero__subtitle {
-    font-size: 22px;
-  }
-}
-
-/* ===================
-   LARGE DESKTOP
-   1025px+
-   =================== */
-@media (min-width: 1025px) {
-  /* Grids con 3 columnas */
-  .objectives__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .topics__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .speakers__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  /* Hero más grande */
-  .hero {
-    min-height: 700px;
-  }
-  
-  .hero__title {
-    font-size: 56px;
-  }
-  
-  .hero__subtitle {
-    font-size: 28px;
-  }
-  
-  /* Parallax divider más alto */
-  .parallax-divider {
-    min-height: 500px;
-  }
-}
-
-/* ===================
-   ULTRA WIDE
-   1440px+
-   =================== */
-@media (min-width: 1440px) {
-  .container {
-    max-width: 1320px;
-  }
-  
-  .hero__title {
-    font-size: 64px;
-  }
-  
-  .parallax-divider__title {
-    font-size: 56px;
-  }
-  
-  /* Opcionalmente 4 columnas en grids */
-  .speakers__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* ===================
-   LANDSCAPE ORIENTATION
-   Para móviles en horizontal
-   =================== */
-@media (max-height: 600px) and (orientation: landscape) {
-  .hero {
-    min-height: 400px;
-  }
-  
-  .hero__title {
-    font-size: 32px;
-  }
-  
-  .hero__subtitle {
-    font-size: 18px;
-  }
-  
-  .parallax-divider {
-    min-height: 300px;
-  }
-  
-  .section {
-    padding: var(--spacing-2xl) 0;
-  }
-}
-
-/* ===================
-   PRINT STYLES
-   Para impresión
-   =================== */
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-  
-  .header,
-  .nav,
-  .footer,
-  .btn,
-  .parallax-divider {
-    display: none;
-  }
-  
-  .section {
-    page-break-inside: avoid;
-  }
-  
-  h2, h3 {
-    page-break-after: avoid;
-  }
-  
-  img {
-    max-width: 100% !important;
-  }
-  
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-}
-
-/* ===================
-   TOUCH DEVICE OPTIMIZATIONS
-   =================== */
-@media (hover: none) and (pointer: coarse) {
-  /* Aumentar áreas táctiles */
-  .btn,
-  .nav__link {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Remover efectos hover en dispositivos táctiles */
-  .card:hover {
-    transform: none;
-  }
-  
-  .btn:hover {
-    transform: none;
-  }
-  
-  /* Desactivar parallax en dispositivos táctiles */
-  .parallax {
-    background-attachment: scroll;
-  }
-}
-
-/* ===================
-   HIGH DPI SCREENS
-   Pantallas Retina
-   =================== */
-@media (-webkit-min-device-pixel-ratio: 2),
-       (min-resolution: 192dpi) {
-  /* Aquí puedes cargar imágenes de mayor resolución */
-  /* Ejemplo:
-  .hero::before {
-    background-image: url('../images/hero/banner-hero@2x.jpg');
-  }
-  */
-}
-
-/* ===================
-   DARK MODE SUPPORT
-   (Opcional - para futuro)
-   =================== */
-@media (prefers-color-scheme: dark) {
-  /* 
-  :root {
-    --surface-white: #1E1E1E;
-    --surface-gray: #121212;
-    --text-primary: rgba(255, 255, 255, 0.87);
-    --text-secondary: rgba(255, 255, 255, 0.6);
-  }
-  */
-}
-
-/* ===================
-   ACCESSIBILITY
-   High Contrast Mode
-   =================== */
-@media (prefers-contrast: high) {
-  .btn,
-  .card,
-  .nav__link {
-    border: 2px solid currentColor;
-  }
-  
-  .hero__overlay,
-  .parallax-divider__overlay {
-    opacity: 0.9;
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
   }
 }

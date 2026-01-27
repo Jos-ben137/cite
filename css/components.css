@@ -138,3 +138,8 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
+.btn--icon:hover {
+  background-color: var(--surface-off-white) !important;
+  transform: rotate(15deg);
+}

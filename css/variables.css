@@ -1,52 +1,71 @@
 /* ===================================
-   VARIABLES CSS - CITE 2026 (Modern Minimalist)
+   VARIABLES CSS - CITE 2026 (Dark Mode Ready)
    =================================== */
 
 :root {
-  /* --- PALETA BASADA EN EL LOGO --- */
-  
-  /* Verde Profundo (Fondo del logo) - Usado para textos fuertes y elementos primarios */
-  --primary-color: #0F3D30; 
-  --primary-dark: #08261E;
-  
-  /* Dorado/Ambar (Detalles del logo) - Usado para CTAs (Botones) */
-  --accent-color: #D4A017;
-  --accent-hover: #B88A10;
-  
-  /* Cian Tecnológico (Centro del logo) - Usado para detalles sutiles */
-  --tech-cyan: #008F99;
+  /* --- PALETA BASE (Nunca cambia) --- */
+  --primary-base: #0F3D30; 
+  --accent-base: #D4A017;
+  --cyan-base: #008F99;
 
-  /* --- SUPERFICIES (Estilo Claude/GPT) --- */
+  /* --- MODO CLARO (Por defecto) --- */
+  --primary-color: #0F3D30;
+  --primary-dark: #08261E;
+  --accent-color: #D4A017;
+  
   --surface-white: #FFFFFF;
-  --surface-off-white: #F9FAF9; /* Un gris muy sutil con un toque verde imperceptible */
+  --surface-off-white: #F9FAF9; 
   --surface-card: #FFFFFF;
-  --border-light: #E5E7EB;      /* Bordes sutiles grises */
+  --surface-nav: rgba(255, 255, 255, 0.9);
   
-  /* --- TEXTO --- */
-  --text-primary: #111827;      /* Casi negro, más suave a la vista */
-  --text-secondary: #4B5563;    /* Gris medio para párrafos */
-  --text-tertiary: #9CA3AF;     /* Gris claro para metadatos */
-  --text-white: #FFFFFF;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-tertiary: #9CA3AF;
   
-  /* --- TIPOGRAFÍA (Estilo Inter/System) --- */
+  --border-light: #E5E7EB;
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(15, 61, 48, 0.03) 0%, transparent 70%);
+  
+  /* --- CONFIGURACIÓN --- */
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  
-  --font-size-h1: 3.5rem;   /* 56px */
-  --font-size-h2: 2.5rem;   /* 40px */
-  --font-size-h3: 2rem;     /* 32px */
-  --font-size-h4: 1.5rem;   /* 24px */
-  --font-size-body: 1.125rem; /* 18px - Lectura cómoda estilo blog moderno */
-  
-  /* --- ESPACIADO Y BORDES --- */
   --border-radius-sm: 6px;
-  --border-radius-md: 12px;     /* Bordes más redondeados y modernos */
+  --border-radius-md: 12px;
   --border-radius-lg: 24px;
-  
-  /* --- SOMBRAS MODERNAS (Sutiles y difusas) --- */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
   
-  /* --- TRANSICIONES --- */
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease;
+}
+
+/* --- MODO OSCURO (Activado por atributo data-theme="dark") --- */
+[data-theme="dark"] {
+  /* Reajuste de colores primarios para mejor contraste en oscuro */
+  --primary-color: #4ADE80; /* Un verde más brillante y legible sobre fondo oscuro */
+  --primary-dark: #22C55E;
+  --accent-color: #FACC15; /* Amarillo más brillante */
+
+  /* Superficies Oscuras (Estilo Slate/Cyberpunk suave) */
+  --surface-white: #0F172A;      /* Fondo principal (Azul muy oscuro) */
+  --surface-off-white: #1E293B;  /* Fondo secundario */
+  --surface-card: #1E293B;       /* Cards */
+  --surface-nav: rgba(15, 23, 42, 0.9);
+  
+  /* Textos */
+  --text-primary: #F3F4F6;       /* Blanco hueso */
+  --text-secondary: #9CA3AF;     /* Gris claro */
+  --text-tertiary: #6B7280;
+  
+  /* Bordes y Detalles */
+  --border-light: #334155;       /* Borde gris azulado */
+  --hero-gradient: radial-gradient(circle at 50% 0%, rgba(74, 222, 128, 0.05) 0%, transparent 70%);
+  
+  /* Ajuste de sombras para que se noten en fondo oscuro */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Aplicar transición suave a todo */
+body, section, .card, .nav, .footer, .btn, .form__input {
+  transition: var(--transition-theme);
 }

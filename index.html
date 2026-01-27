@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/sections.css">
     <link rel="stylesheet" href="css/responsive.css">
-    </head>
+</head>
 <body>
     
     <header class="header">
@@ -33,9 +33,15 @@
                     </div>
                 </a>
                 
-                <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
-                    <span class="material-symbols-rounded" style="color: var(--text-primary);">menu</span>
-                </button>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <button id="themeToggle" class="btn--icon" aria-label="Cambiar tema" style="background: transparent; border: 1px solid var(--border-light); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-primary); transition: all 0.2s;">
+                        <span class="material-symbols-rounded theme-icon-light">light_mode</span>
+                        <span class="material-symbols-rounded theme-icon-dark" style="display: none;">dark_mode</span>
+                    </button>
+                    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+                        <span class="material-symbols-rounded" style="color: var(--text-primary);">menu</span>
+                    </button>
+                </div>
                 
                 <ul class="nav__links" id="navLinks">
                     <li class="nav__item"><a href="#inicio" class="nav__link">Inicio</a></li>
@@ -292,6 +298,31 @@
             once: true,
             offset: 50,
             easing: 'ease-out-cubic'
+        });
+
+        // Toggle de tema oscuro/claro
+        const themeToggle = document.getElementById('themeToggle');
+        const lightIcon = document.querySelector('.theme-icon-light');
+        const darkIcon = document.querySelector('.theme-icon-dark');
+        
+        // Verificar preferencia guardada o del sistema
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-theme');
+            lightIcon.style.display = 'none';
+            darkIcon.style.display = 'block';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            
+            lightIcon.style.display = isDark ? 'none' : 'block';
+            darkIcon.style.display = isDark ? 'block' : 'none';
+            
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     </script>
 </body>

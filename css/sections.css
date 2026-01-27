@@ -1,18 +1,11 @@
-/* ===================================
-   SECTIONS - CITE 2026 (Modern Structure)
-   =================================== */
-
-/* ===================
-   HEADER & NAVIGATION
-   =================== */
 .header {
-  background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
-  backdrop-filter: blur(10px); /* Efecto vidrio (blur) detrás del menú */
+  background-color: var(--surface-nav);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-light);
   position: sticky;
   top: 0;
-  z-index: 1000; /* Asegura que esté siempre encima */
+  z-index: 1000;
   width: 100%;
 }
 
@@ -33,10 +26,9 @@
   text-decoration: none;
 }
 
-/* --- AQUÍ ESTÁ LA CORRECCIÓN DEL LOGO --- */
 .nav__logo-img {
-  height: 48px; /* Altura fija para evitar que se agrande */
-  width: auto;  /* El ancho se ajusta automáticamente */
+  height: 48px;
+  width: auto;
   display: block;
   object-fit: contain;
 }
@@ -61,7 +53,7 @@
 }
 
 .nav__toggle {
-  display: none; /* Oculto en escritorio */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -108,17 +100,13 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* ===================
-   HERO SECTION (Minimalista)
-   =================== */
 .hero {
   position: relative;
-  min-height: 90vh; /* Ocupa casi toda la altura de la pantalla */
+  min-height: 90vh;
   display: flex;
   align-items: center;
   background-color: var(--surface-white);
-  /* Degradado sutil en el fondo */
-  background: radial-gradient(circle at 50% 0%, rgba(15, 61, 48, 0.03) 0%, transparent 70%);
+  background: var(--hero-gradient);
   padding: 80px 0;
   text-align: center;
 }
@@ -132,7 +120,7 @@
 
 .hero__title {
   font-family: var(--font-family);
-  font-size: clamp(2.5rem, 5vw, 4.5rem); /* Texto responsivo: se adapta al móvil */
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 800;
   color: var(--primary-color);
   line-height: 1.1;
@@ -157,23 +145,20 @@
   color: var(--text-secondary);
   font-weight: 500;
   font-size: 0.95rem;
-  flex-wrap: wrap; /* Se adapta en móviles */
+  flex-wrap: wrap;
 }
 
 .hero__info-item {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: white;
+  background: var(--surface-card);
   padding: 8px 16px;
   border-radius: 50px;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
 }
 
-/* ===================
-   SECCIONES GENERALES
-   =================== */
 .section {
   padding: 80px 0;
   background-color: var(--surface-white);
@@ -203,25 +188,19 @@
   line-height: 1.6;
 }
 
-/* ===================
-   GRID DE TEMAS (Topics)
-   =================== */
 .topics__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
 }
 
-/* ===================
-   PROGRAMA (Schedule)
-   =================== */
 .schedule__days {
   max-width: 800px;
   margin: 0 auto;
 }
 
 .day-card {
-  background: var(--surface-white);
+  background: var(--surface-card);
   border: 1px solid var(--border-light);
   border-radius: var(--border-radius-md);
   overflow: hidden;
@@ -280,67 +259,19 @@
 }
 
 .event--highlight {
-  background-color: rgba(15, 61, 48, 0.03); /* Fondo verde muy suave */
+  background-color: rgba(15, 61, 48, 0.03);
 }
 
-/* ===================
-   PONENTES (Speakers)
-   =================== */
+[data-theme="dark"] .event--highlight {
+  background-color: rgba(74, 222, 128, 0.05);
+}
+
 .speakers__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
 }
 
-/* ===================
-   FORMULARIO (Registro)
-   =================== */
-.form {
-  background: var(--surface-white);
-  padding: 40px;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-light);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.form__group {
-  margin-bottom: 20px;
-}
-
-.form__label {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.form__input,
-.form__select {
-  width: 100%;
-  padding: 12px 16px;
-  font-family: var(--font-family);
-  font-size: 1rem;
-  border: 1px solid var(--border-light);
-  border-radius: var(--border-radius-sm);
-  background-color: var(--surface-off-white);
-  transition: all 0.2s;
-  color: var(--text-primary);
-}
-
-.form__input:focus,
-.form__select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  background-color: white;
-  box-shadow: 0 0 0 3px rgba(15, 61, 48, 0.1); /* Anillo de foco verde suave */
-}
-
-/* ===================
-   FOOTER
-   =================== */
 .footer {
   background-color: var(--surface-off-white);
   border-top: 1px solid var(--border-light);
