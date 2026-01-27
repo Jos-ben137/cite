@@ -1,19 +1,118 @@
 /* ===================================
    RESPONSIVE - CITE 2026
    Ajustes para móviles y tabletas
+   Con menú flotante Glassmorphism
    =================================== */
+
+/* --- VARIABLES ADICIONALES PARA RESPONSIVE --- */
+:root {
+  --nav-height: 73px;
+  --glass-light: rgba(255, 255, 255, 0.85);
+  --glass-dark: rgba(15, 23, 42, 0.9);
+  --glass-blur: 20px;
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --- ESTILOS BASE PARA COMPONENTES --- */
+
+/* Overlay del menú */
+.nav__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 998;
+  pointer-events: none;
+}
+
+.nav__overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+[data-theme="dark"] .nav__overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Nav toggle base (oculto en desktop) */
+.nav__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav__toggle:hover,
+.nav__toggle:focus {
+  background-color: rgba(var(--primary-rgb), 0.1);
+  outline: none;
+}
+
+/* Estilos del hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  gap: 5px;
+}
+
+.hamburger__line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: 
+    transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+    opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Animación del hamburger a X */
+.nav__toggle.active .hamburger__line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav__toggle.active .hamburger__line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav__toggle.active .hamburger__line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
 /* --- TABLET Y MÓVIL (Menor a 1024px) --- */
 @media (max-width: 1024px) {
   
   /* Ajuste de contenedores */
   .container {
-    padding: 0 24px; /* Un poco más de margen lateral */
+    padding: 0 24px;
   }
 
   /* Títulos un poco más pequeños */
   .section__title {
     font-size: 2rem;
+  }
+  
+  /* Grids más compactos */
+  .topics__grid,
+  .speakers__grid {
+    gap: 20px;
   }
 }
 
@@ -22,62 +121,165 @@
 
   /* ===================
      NAVEGACIÓN MÓVIL
+     Estilo Flotante Glassmorphism
      =================== */
   
   /* Mostrar el botón de menú (hamburguesa) */
   .nav__toggle {
-    display: block; /* Se había ocultado en sections.css */
+    display: flex;
     z-index: 1002;
     position: relative;
   }
 
-  /* El menú de enlaces */
+  /* El menú de enlaces - ESTILO FLOTANTE SUPERIOR */
   .nav__links {
     position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 75%; /* Ocupa 3/4 de la pantalla */
-    max-width: 300px;
-    background-color: var(--surface-white);
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+    
+    /* Efecto Glassmorphism - más opaco para que el logo se vea bien */
+    background-color: var(--glass-light);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.08),
+      0 1px 3px rgba(0, 0, 0, 0.02);
+    
+    /* Layout */
     flex-direction: column;
-    align-items: flex-start;
-    padding: 80px 24px 24px; /* Espacio arriba para no chocar con el botón */
-    box-shadow: -4px 0 20px rgba(0,0,0,0.1);
-    transform: translateX(100%); /* Oculto a la derecha por defecto */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1001;
+    align-items: center;
+    padding: 32px 24px 40px;
+    gap: 12px;
+    
+    /* Animación de entrada */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 
+      opacity 0.4s var(--transition-smooth),
+      visibility 0.4s var(--transition-smooth),
+      transform 0.4s var(--transition-smooth);
+    z-index: 999;
   }
-
-  /* Clase que agrega JS cuando abres el menú */
+  
+  /* Estado Activo */
   .nav__links.active {
-    transform: translateX(0); /* Entra a la pantalla */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
-  /* Estilo de los enlaces en móvil */
+  /* Modo Oscuro */
+  [data-theme="dark"] .nav__links {
+    background-color: var(--glass-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Estilo de los items del menú */
   .nav__item {
     width: 100%;
-    margin-bottom: 8px;
+    max-width: 280px;
+    text-align: center;
+    margin: 0;
+    
+    /* Animación escalonada */
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: 
+      opacity 0.35s ease,
+      transform 0.35s var(--transition-bounce);
   }
+  
+  /* Items visibles cuando el menú está activo */
+  .nav__links.active .nav__item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Efecto cascada con delays escalonados */
+  .nav__links.active .nav__item:nth-child(1) { transition-delay: 0.05s; }
+  .nav__links.active .nav__item:nth-child(2) { transition-delay: 0.1s; }
+  .nav__links.active .nav__item:nth-child(3) { transition-delay: 0.15s; }
+  .nav__links.active .nav__item:nth-child(4) { transition-delay: 0.2s; }
+  .nav__links.active .nav__item:nth-child(5) { transition-delay: 0.25s; }
+  .nav__links.active .nav__item:nth-child(6) { transition-delay: 0.3s; }
+  .nav__links.active .nav__item:nth-child(7) { transition-delay: 0.35s; }
+  .nav__links.active .nav__item:nth-child(8) { transition-delay: 0.4s; }
 
+  /* Estilo de los enlaces */
   .nav__link {
-    display: block;
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 1.1rem; /* Texto más grande para dedos */
-    border-radius: var(--border-radius-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 120px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    background: transparent;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 
+      background-color 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s var(--transition-bounce),
+      box-shadow 0.25s ease;
   }
-
+  
+  .nav__link:hover,
+  .nav__link:focus {
+    background-color: rgba(var(--primary-rgb), 0.12);
+    color: var(--primary-color);
+    transform: scale(1.03);
+    outline: none;
+  }
+  
   .nav__link:active {
-    background-color: var(--surface-off-white);
+    transform: scale(0.98);
+    background-color: rgba(var(--primary-rgb), 0.18);
+  }
+  
+  /* Indicador de link activo */
+  .nav__link.active {
+    background-color: rgba(var(--primary-rgb), 0.15);
+    color: var(--primary-color);
+    font-weight: 600;
   }
 
   /* Botón CTA en móvil */
   .nav__link--cta {
-    text-align: center;
-    margin-top: 16px;
-    background-color: var(--primary-color);
-    color: white;
+    margin-top: 8px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark, var(--primary-color)));
+    color: white !important;
+    padding: 14px 36px;
+    font-weight: 600;
+    box-shadow: 
+      0 4px 15px rgba(var(--primary-rgb), 0.35),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav__link--cta:hover,
+  .nav__link--cta:focus {
+    background: linear-gradient(135deg, var(--primary-dark, var(--primary-color)), var(--primary-color));
+    color: white !important;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 
+      0 8px 25px rgba(var(--primary-rgb), 0.4),
+      0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .nav__link--cta:active {
+    transform: scale(1.02) translateY(0);
   }
 
   /* ===================
@@ -85,12 +287,18 @@
      =================== */
   
   .section {
-    padding: 48px 0; /* Menos padding vertical en móvil */
+    padding: 48px 0;
   }
 
   .section__description {
     margin-bottom: 40px;
     font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .section__title {
+    font-size: 1.75rem;
+    margin-bottom: 16px;
   }
 
   /* ===================
@@ -98,64 +306,77 @@
      =================== */
   
   .hero {
-    min-height: auto; /* Ya no forzar pantalla completa */
-    padding: 120px 0 60px; /* Más padding arriba por el header fijo */
+    min-height: auto;
+    padding: 100px 0 60px;
     text-align: center;
   }
 
   .hero__title {
-    font-size: 2.5rem; /* Ajuste manual por seguridad */
+    font-size: 2.25rem;
     margin-bottom: 16px;
+    line-height: 1.2;
   }
 
   .hero__subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 32px;
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+    line-height: 1.6;
   }
 
   .hero__info-bar {
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    margin-bottom: 32px;
   }
   
   .hero__info-item {
-    width: 100%; /* Ocupar todo el ancho disponible */
+    width: 100%;
     justify-content: center;
     max-width: 300px;
+    padding: 12px 16px;
+    background: rgba(var(--primary-rgb), 0.05);
+    border-radius: var(--border-radius-md);
   }
 
-  /* Botones del Hero uno debajo del otro */
-  .hero .btn {
-    width: 100%;
-    max-width: 300px; /* Que no se vean gigantes */
-    margin-bottom: 12px;
-  }
-  
-  /* Contenedor de botones flex a columna */
+  /* Contenedor de botones del Hero */
+  .hero__buttons,
   .hero > .container > div:last-child {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
   }
 
   /* ===================
      GRID ADJUSTMENTS
      =================== */
   
-  /* Forzar una sola columna si es necesario, 
-     aunque el grid auto-fit suele hacerlo solo */
   .topics__grid,
   .speakers__grid {
-    grid-template-columns: 1fr; /* Una columna */
+    grid-template-columns: 1fr;
     gap: 24px;
   }
   
-  /* Ajustes en Cards */
+  /* Cards centradas y con ancho máximo */
   .card, 
   .speaker-card {
-    max-width: 400px; /* Evitar que se estiren demasiado */
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+  }
+  
+  /* Mejora táctil en cards */
+  .card:active,
+  .speaker-card:active {
+    transform: scale(0.98);
   }
 
   /* ===================
@@ -163,38 +384,259 @@
      =================== */
   
   .event {
-    flex-direction: column; /* Hora arriba, evento abajo */
+    flex-direction: column;
     gap: 8px;
+    padding: 16px;
+    border-radius: var(--border-radius-md);
+    background: var(--surface-off-white);
+    margin-bottom: 12px;
   }
 
   .event__time {
-    color: var(--accent-color); /* Resaltar hora */
+    color: var(--accent-color);
     font-size: 0.85rem;
-    background: rgba(0,0,0,0.03);
-    padding: 4px 8px;
-    border-radius: 4px;
+    font-weight: 600;
+    background: rgba(var(--primary-rgb), 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
     align-self: flex-start;
+  }
+  
+  .event__title {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .event__description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  /* ===================
+     FORMULARIOS
+     =================== */
+  
+  .form__group {
+    margin-bottom: 20px;
+  }
+  
+  .form__input,
+  .form__textarea {
+    font-size: 16px; /* Evita zoom automático en iOS */
+    padding: 14px 16px;
+  }
+  
+  .form__submit {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1rem;
   }
   
   /* ===================
      FOOTER
      =================== */
   
+  .footer {
+    padding: 48px 0 24px;
+  }
+  
   .footer__container .grid {
-    grid-template-columns: 1fr; /* Una columna */
+    grid-template-columns: 1fr;
     text-align: center;
     gap: 32px;
   }
+  
+  .footer__logo {
+    margin: 0 auto 16px;
+  }
+  
+  .footer__links {
+    justify-content: center;
+  }
+  
+  .footer__social {
+    justify-content: center;
+  }
+  
+  .footer__bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding-top: 24px;
+  }
 }
 
-/* --- MÓVILES PEQUEÑOS (Menor a 380px) --- */
-@media (max-width: 380px) {
+/* --- MÓVILES PEQUEÑOS (Menor a 480px) --- */
+@media (max-width: 480px) {
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+  
+  .section__title {
+    font-size: 1.5rem;
+  }
+  
+  .hero {
+    padding: 90px 0 48px;
+  }
+  
   .hero__title {
-    font-size: 2rem;
+    font-size: 1.9rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+  
+  .nav__links {
+    padding: 24px 16px 32px;
+  }
+  
+  .nav__link {
+    font-size: 1rem;
+    padding: 10px 24px;
+  }
+  
+  .nav__link--cta {
+    padding: 12px 28px;
+  }
+}
+
+/* --- MÓVILES MUY PEQUEÑOS (Menor a 380px) --- */
+@media (max-width: 380px) {
+  
+  .hero__title {
+    font-size: 1.75rem;
   }
   
   .btn {
     padding: 10px 16px;
     font-size: 0.9rem;
+  }
+  
+  .section__title {
+    font-size: 1.35rem;
+  }
+  
+  .nav__link {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    min-width: 100px;
+  }
+  
+  .hero__info-item {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- ACCESIBILIDAD: Reducir movimiento --- */
+@media (prefers-reduced-motion: reduce) {
+  
+  .nav__links,
+  .nav__item,
+  .nav__link,
+  .nav__link--cta,
+  .card,
+  .speaker-card,
+  .event,
+  .hamburger__line {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .nav__links.active .nav__item {
+    transition-delay: 0s !important;
+  }
+  
+  .nav__links {
+    transform: none;
+  }
+  
+  .nav__links.active {
+    transform: none;
+  }
+}
+
+/* --- LANDSCAPE en móviles --- */
+@media (max-width: 768px) and (orientation: landscape) {
+  
+  .hero {
+    min-height: auto;
+    padding: 80px 0 40px;
+  }
+  
+  .hero__title {
+    font-size: 1.75rem;
+  }
+  
+  .nav__links {
+    max-height: 70vh;
+    padding: 20px 24px;
+    gap: 8px;
+  }
+  
+  .nav__link {
+    padding: 8px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .section {
+    padding: 32px 0;
+  }
+}
+
+/* --- MEJORAS PARA TÁCTIL --- */
+@media (hover: none) and (pointer: coarse) {
+  
+  /* Aumentar áreas táctiles */
+  .nav__link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .btn {
+    min-height: 48px;
+  }
+  
+  /* Quitar hover en touch */
+  .nav__link:hover {
+    transform: none;
+    background-color: transparent;
+  }
+  
+  .nav__link:active {
+    background-color: rgba(var(--primary-rgb), 0.15);
+    transform: scale(0.98);
+  }
+  
+  .nav__link--cta:hover {
+    transform: none;
+  }
+  
+  .nav__link--cta:active {
+    transform: scale(0.98);
+  }
+}
+
+/* --- SAFE AREA PARA DISPOSITIVOS CON NOTCH --- */
+@supports (padding: max(0px)) {
+  
+  .nav__links {
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+  }
+  
+  .footer {
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+  
+  .hero {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
   }
 }

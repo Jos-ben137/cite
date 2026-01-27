@@ -1,7 +1,4 @@
-/**
- * MAIN JAVASCRIPT - CITE 2026
- * Funcionalidad general del sitio
- */
+// js/parallax.js
 
 (function() {
   'use strict';

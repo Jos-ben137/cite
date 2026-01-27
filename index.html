@@ -21,6 +21,9 @@
 </head>
 <body>
     
+    <!-- Overlay para el menú móvil -->
+    <div class="nav__overlay" id="navOverlay"></div>
+
     <header class="header">
         <nav class="nav">
             <div class="container nav__container">
@@ -36,8 +39,12 @@
                         <span class="material-symbols-rounded theme-icon-light">light_mode</span>
                         <span class="material-symbols-rounded theme-icon-dark" style="display: none;">dark_mode</span>
                     </button>
-                    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
-                        <span class="material-symbols-rounded" style="color: var(--text-primary);">menu</span>
+                    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+                        <span class="hamburger">
+                            <span class="hamburger__line"></span>
+                            <span class="hamburger__line"></span>
+                            <span class="hamburger__line"></span>
+                        </span>
                     </button>
                 </div>
                 
@@ -57,7 +64,7 @@
         <div class="container hero__container">
             <div data-aos="fade-down" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--surface-off-white); border: 1px solid var(--border-light); border-radius: 20px; color: var(--text-secondary); font-weight: 500; font-size: 14px; margin-bottom: 24px;">
                 <span class="material-symbols-rounded" style="font-size: 16px; color: var(--accent-color);">calendar_today</span>
-                15 - 17 de Marzo, 2026
+                Jueves 29 de Enero, 2026
             </div>
 
             <h1 class="hero__title" data-aos="fade-up">
@@ -72,11 +79,15 @@
             <div class="hero__info-bar" data-aos="fade-up" data-aos-delay="200">
                 <div class="hero__info-item">
                     <span class="material-symbols-rounded" style="color: var(--accent-color)">location_on</span>
-                    Villa de Álvarez, Colima
+                    Coquimatlán, Colima
                 </div>
                 <div class="hero__info-item">
                     <span class="material-symbols-rounded" style="color: var(--accent-color)">school</span>
                     FIME - UdeC
+                </div>
+                <div class="hero__info-item">
+                    <span class="material-symbols-rounded" style="color: var(--accent-color)">videocam</span>
+                    Modalidad Híbrida
                 </div>
             </div>
 
@@ -128,12 +139,13 @@
 
     <section id="programa" class="section section--gray">
         <div class="container">
-            <h2 class="section__title" data-aos="fade-up">Agenda General</h2>
+            <h2 class="section__title" data-aos="fade-up">Agenda del Evento</h2>
+            <p class="section__description" data-aos="fade-up" data-aos-delay="50">Jueves 29 de Enero, 2026</p>
             <div class="schedule__days">
                 <div class="day-card" data-aos="fade-up">
                     <div class="day-card__header">
                         <span class="material-symbols-rounded day-card__icon">calendar_month</span>
-                        <h3 class="day-card__title">Día 1: Apertura e IA</h3>
+                        <h3 class="day-card__title">Programa General</h3>
                     </div>
                     <div class="day-card__content">
                         <div class="event">
@@ -256,7 +268,7 @@
             <div style="text-align: center; max-width: 600px; margin: 0 auto;">
                 <h2 class="section__title" data-aos="fade-up">Registro</h2>
                 <p class="section__description" data-aos="fade-up" data-aos-delay="100">
-                    La entrada es libre. Regístrate para obtener tu constancia de participación.
+                    La entrada es libre. Regístrate para obtener tu constancia de participación. Disponible de forma presencial y en línea.
                 </p>
                 
                 <div class="card" data-aos="fade-up" data-aos-delay="200" style="padding: 48px 32px; display: flex; flex-direction: column; align-items: center; gap: 24px; border: 1px solid var(--border-light); box-shadow: var(--shadow-md);">
@@ -270,7 +282,7 @@
                         <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">Serás redirigido a Google Forms para completar tus datos de manera segura.</p>
                     </div>
 
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf10DfUSwwgfyEbDIWNYAqgyg9t6z5AwUXipro3VKc8gKg9Fg/viewform?pli=1" target="_blank" class="btn btn--primary btn--large">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf10DfUSwwgfyEbDIWNYAqgyg9t6z5AwUXipro3VKc8gKg9Fg/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--large">
                         Completar Registro
                         <span class="material-symbols-rounded btn__icon">open_in_new</span>
                     </a>
@@ -300,6 +312,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/parallax.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
