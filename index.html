@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/sections.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/chat.css">
 </head>
 <body>
     
@@ -312,8 +313,42 @@
         <span class="material-symbols-rounded theme-icon-dark" style="display: none;">dark_mode</span>
     </button>
 
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle" id="chatToggle" aria-label="Abrir chat">
+            <span class="material-symbols-rounded chat-icon-open">smart_toy</span>
+            <span class="material-symbols-rounded chat-icon-close" style="display: none;">close</span>
+        </button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-header__info">
+                    <span class="material-symbols-rounded">smart_toy</span>
+                    <div>
+                        <h3 class="chat-header__title">Asistente CITE</h3>
+                        <span class="chat-header__status">En línea</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message message--bot">
+                    <div class="message__content">
+                        Hola, soy la IA del coloquio. ¿En qué puedo ayudarte hoy sobre el evento?
+                    </div>
+                    <div class="message__time">Ahora</div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <textarea id="chatInput" placeholder="Escribe tu pregunta..." rows="1"></textarea>
+                <button id="chatSend" class="chat-send-btn" aria-label="Enviar">
+                    <span class="material-symbols-rounded">send</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
     <script src="js/parallax.js"></script>
+    <script src="js/chat.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
