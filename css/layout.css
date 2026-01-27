@@ -1,9 +1,6 @@
-/* ===================================
-   LAYOUT - CITE 2026
-   Sistema de Grid y Contenedores
-   =================================== */
 
-/* Container System */
+
+
 .container {
   width: 100%;
   max-width: var(--max-width-lg);
@@ -27,7 +24,7 @@
   max-width: 100%;
 }
 
-/* Section Spacing */
+
 .section {
   padding: var(--spacing-4xl) 0;
 }
@@ -49,7 +46,7 @@
   color: var(--text-white);
 }
 
-/* Section Headers */
+
 .section__title {
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-regular);
@@ -72,7 +69,7 @@
   line-height: var(--line-height-relaxed);
 }
 
-/* Grid Systems */
+
 .grid {
   display: grid;
   gap: var(--spacing-lg);
@@ -98,7 +95,7 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
-/* Flexbox Utilities */
+
 .flex {
   display: flex;
 }
@@ -121,7 +118,7 @@
   flex-wrap: wrap;
 }
 
-/* Spacing Utilities */
+
 .mt-0 { margin-top: 0; }
 .mt-sm { margin-top: var(--spacing-sm); }
 .mt-md { margin-top: var(--spacing-md); }
@@ -150,12 +147,12 @@
 .pb-xl { padding-bottom: var(--spacing-xl); }
 .pb-2xl { padding-bottom: var(--spacing-2xl); }
 
-/* Text Alignment */
+
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 
-/* Display Utilities */
+
 .d-none { display: none; }
 .d-block { display: block; }
 .d-inline { display: inline; }
@@ -163,28 +160,28 @@
 .d-flex { display: flex; }
 .d-grid { display: grid; }
 
-/* Visibility */
+
 .visible { visibility: visible; }
 .invisible { visibility: hidden; }
 
-/* Overflow */
+
 .overflow-hidden { overflow: hidden; }
 .overflow-auto { overflow: auto; }
 .overflow-scroll { overflow: scroll; }
 
-/* Position */
+
 .position-relative { position: relative; }
 .position-absolute { position: absolute; }
 .position-fixed { position: fixed; }
 .position-sticky { position: sticky; }
 
-/* Width & Height Utilities */
+
 .w-full { width: 100%; }
 .h-full { height: 100%; }
 .w-auto { width: auto; }
 .h-auto { height: auto; }
 
-/* Responsive Grid Breakpoints */
+
 @media (max-width: 768px) {
   .grid--2,
   .grid--3,

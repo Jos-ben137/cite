@@ -1,4 +1,4 @@
-/* --- BTNS --- */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -52,7 +52,7 @@
   background-color: var(--surface-off-white);
 }
 
-/* --- CARDS --- */
+
 .card {
   background: var(--surface-card);
   border: 1px solid var(--border-light);
@@ -87,7 +87,7 @@
   line-height: 1.6;
 }
 
-/* --- SPEAKER CARDS --- */
+
 .speaker-card {
   background: var(--surface-white);
   border: 1px solid var(--border-light);

@@ -1,11 +1,6 @@
-/* ===================================
-   PARALLAX EFFECTS - CITE 2026
-   Efectos de Profundidad y Movimiento
-   =================================== */
 
-/* ===================
-   PARALLAX BASE
-   =================== */
+
+
 .parallax {
   background-attachment: fixed;
   background-position: center;
@@ -14,16 +9,14 @@
   position: relative;
 }
 
-/* Desactiva parallax en móviles para mejor rendimiento */
+
 @media (max-width: 768px) {
   .parallax {
     background-attachment: scroll;
   }
 }
 
-/* ===================
-   PARALLAX DIVIDERS
-   =================== */
+
 .parallax-divider {
   min-height: 400px;
   display: flex;
@@ -75,10 +68,7 @@
   margin-top: var(--spacing-md);
 }
 
-/* ===================
-   PARALLAX LAYERS
-   Efecto de capas con diferentes velocidades
-   =================== */
+
 .parallax-container {
   position: relative;
   overflow: hidden;
@@ -106,10 +96,7 @@
   transform: translateZ(1px) scale(0.5);
 }
 
-/* ===================
-   SCROLL ANIMATIONS
-   Animaciones activadas por scroll
-   =================== */
+
 [data-aos] {
   opacity: 0;
   transition-property: opacity, transform;
@@ -121,7 +108,7 @@
   opacity: 1;
 }
 
-/* Fade Up */
+
 [data-aos="fade-up"] {
   transform: translateY(30px);
 }
@@ -130,7 +117,7 @@
   transform: translateY(0);
 }
 
-/* Fade Down */
+
 [data-aos="fade-down"] {
   transform: translateY(-30px);
 }
@@ -139,7 +126,7 @@
   transform: translateY(0);
 }
 
-/* Fade Left */
+
 [data-aos="fade-left"] {
   transform: translateX(-30px);
 }
@@ -148,7 +135,7 @@
   transform: translateX(0);
 }
 
-/* Fade Right */
+
 [data-aos="fade-right"] {
   transform: translateX(30px);
 }
@@ -157,7 +144,7 @@
   transform: translateX(0);
 }
 
-/* Zoom In */
+
 [data-aos="zoom-in"] {
   transform: scale(0.9);
 }
@@ -166,7 +153,7 @@
   transform: scale(1);
 }
 
-/* Delays para animaciones escalonadas */
+
 [data-aos-delay="100"] {
   transition-delay: 0.1s;
 }
@@ -187,10 +174,7 @@
   transition-delay: 0.5s;
 }
 
-/* ===================
-   IMAGE REVEAL EFFECTS
-   Efectos de revelado de imágenes
-   =================== */
+
 .img-reveal {
   position: relative;
   overflow: hidden;
@@ -217,10 +201,7 @@
   left: 100%;
 }
 
-/* ===================
-   FLOATING ELEMENTS
-   Elementos flotantes suaves
-   =================== */
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -242,10 +223,7 @@
   animation-duration: 2s;
 }
 
-/* ===================
-   GRADIENT ANIMATIONS
-   Gradientes animados para fondos
-   =================== */
+
 @keyframes gradient-shift {
   0% {
     background-position: 0% 50%;
@@ -263,10 +241,7 @@
   animation: gradient-shift 15s ease infinite;
 }
 
-/* ===================
-   BLUR ON SCROLL
-   Efecto blur al hacer scroll
-   =================== */
+
 .blur-on-scroll {
   transition: filter var(--transition-slow);
 }
@@ -275,10 +250,7 @@
   filter: blur(3px);
 }
 
-/* ===================
-   TILT EFFECT
-   Efecto de inclinación 3D
-   =================== */
+
 .tilt-card {
   transform-style: preserve-3d;
   transition: transform var(--transition-normal);
@@ -288,9 +260,7 @@
   transform: perspective(1000px) rotateY(5deg) rotateX(-5deg);
 }
 
-/* ===================
-   PERFORMANCE OPTIMIZATIONS
-   =================== */
+
 .parallax,
 .parallax-layer,
 .tilt-card,
@@ -303,7 +273,7 @@
   transform: translateZ(0);
 }
 
-/* Reduce motion para usuarios que lo prefieran */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -322,9 +292,7 @@
   }
 }
 
-/* ===================
-   SMOOTH SCROLL
-   =================== */
+
 html {
   scroll-behavior: smooth;
 }

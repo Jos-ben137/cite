@@ -1,36 +1,34 @@
-// js/parallax.js
+
 
 (function() {
   'use strict';
 
-  // ===================
-  // MOBILE NAVIGATION
-  // ===================
   
-  /**
-   * Toggle del menú móvil
-   */
+  
+  
+  
+  
   function initMobileNav() {
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
     
     if (!navToggle || !navLinks) return;
     
-    // Toggle al hacer clic en el botón
+    
     navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       
-      // Cambiar icono
+      
       const icon = navToggle.querySelector('.material-icons');
       if (icon) {
         icon.textContent = navLinks.classList.contains('active') ? 'close' : 'menu';
       }
       
-      // Prevenir scroll del body cuando el menú está abierto
+      
       document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     });
     
-    // Cerrar menú al hacer clic en un enlace
+    
     const links = navLinks.querySelectorAll('.nav__link');
     links.forEach(link => {
       link.addEventListener('click', () => {
@@ -42,7 +40,7 @@
       });
     });
     
-    // Cerrar menú al hacer clic fuera
+    
     document.addEventListener('click', (e) => {
       if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
         navLinks.classList.remove('active');
@@ -53,7 +51,7 @@
       }
     });
     
-    // Cerrar menú al redimensionar ventana
+    
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
         navLinks.classList.remove('active');
@@ -65,13 +63,11 @@
     });
   }
 
-  // ===================
-  // FORM VALIDATION
-  // ===================
   
-  /**
-   * Validación del formulario de registro
-   */
+  
+  
+  
+  
   function initFormValidation() {
     const form = document.querySelector('.form');
     if (!form) return;
@@ -79,14 +75,14 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      // Obtener valores
+      
       const nombre = document.getElementById('nombre')?.value.trim();
       const email = document.getElementById('email')?.value.trim();
       const institucion = document.getElementById('institucion')?.value.trim();
       const area = document.getElementById('area')?.value;
       const proyecto = document.getElementById('proyecto')?.value;
       
-      // Validaciones básicas
+      
       let isValid = true;
       let errorMessage = '';
       
@@ -112,7 +108,7 @@
         return;
       }
       
-      // Si todo es válido
+      
       const formData = {
         nombre,
         email,
@@ -122,39 +118,35 @@
         timestamp: new Date().toISOString()
       };
       
-      // Aquí puedes enviar los datos a un servidor
+      
       console.log('Datos del formulario:', formData);
       
-      // Simular envío exitoso
+      
       showAlert('¡Registro exitoso! Te hemos enviado un correo de confirmación.', 'success');
       form.reset();
       
-      // Opcional: redirigir o mostrar mensaje de éxito
+      
       setTimeout(() => {
-        // window.location.href = '#inicio';
+        
       }, 2000);
     });
   }
   
-  /**
-   * Validar formato de email
-   */
+  
   function isValidEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
   
-  /**
-   * Mostrar alerta
-   */
+  
   function showAlert(message, type = 'info') {
-    // Remover alertas anteriores
+    
     const existingAlert = document.querySelector('.alert');
     if (existingAlert) {
       existingAlert.remove();
     }
     
-    // Crear nueva alerta
+    
     const alert = document.createElement('div');
     alert.className = `alert alert--${type}`;
     alert.innerHTML = `
@@ -162,15 +154,15 @@
       <span>${message}</span>
     `;
     
-    // Insertar antes del formulario
+    
     const form = document.querySelector('.form');
     if (form) {
       form.parentNode.insertBefore(alert, form);
       
-      // Scroll hacia la alerta
+      
       alert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       
-      // Auto-remover después de 5 segundos
+      
       setTimeout(() => {
         alert.style.opacity = '0';
         setTimeout(() => alert.remove(), 300);
@@ -178,9 +170,7 @@
     }
   }
   
-  /**
-   * Obtener icono según tipo de alerta
-   */
+  
   function getAlertIcon(type) {
     const icons = {
       info: 'info',
@@ -191,13 +181,11 @@
     return icons[type] || 'info';
   }
 
-  // ===================
-  // ACTIVE SECTION INDICATOR
-  // ===================
   
-  /**
-   * Resalta el enlace de navegación activo según la sección visible
-   */
+  
+  
+  
+  
   function initActiveSection() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav__link');
@@ -214,12 +202,12 @@
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
           
-          // Remover clase active de todos los enlaces
+          
           navLinks.forEach(link => {
             link.classList.remove('active');
           });
           
-          // Añadir clase active al enlace correspondiente
+          
           const activeLink = document.querySelector(`.nav__link[href="#${id}"]`);
           if (activeLink) {
             activeLink.classList.add('active');
@@ -230,7 +218,7 @@
     
     sections.forEach(section => observer.observe(section));
     
-    // Estilos para enlace activo
+    
     const style = document.createElement('style');
     style.textContent = `
       .nav__link.active {
@@ -241,13 +229,11 @@
     document.head.appendChild(style);
   }
 
-  // ===================
-  // CARD HOVER EFFECTS
-  // ===================
   
-  /**
-   * Efecto 3D en las cards al mover el mouse
-   */
+  
+  
+  
+  
   function initCardHoverEffects() {
     const cards = document.querySelectorAll('.speaker-card');
     
@@ -272,13 +258,11 @@
     });
   }
 
-  // ===================
-  // COUNTDOWN TIMER (Opcional)
-  // ===================
   
-  /**
-   * Cuenta regresiva para el evento
-   */
+  
+  
+  
+  
   function initCountdown() {
     const eventDate = new Date('2026-03-15T09:00:00').getTime();
     
@@ -287,7 +271,7 @@
       const distance = eventDate - now;
       
       if (distance < 0) {
-        // El evento ya pasó
+        
         return;
       }
       
@@ -298,22 +282,20 @@
       
       console.log(`Faltan: ${days}d ${hours}h ${minutes}m ${seconds}s`);
       
-      // Aquí puedes actualizar un elemento del DOM si lo tienes
-      // document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      
+      
     }
     
-    // Actualizar cada segundo (descomenta si quieres usar el countdown)
-    // setInterval(updateCountdown, 1000);
-    // updateCountdown();
+    
+    
+    
   }
 
-  // ===================
-  // PRELOAD IMAGES
-  // ===================
   
-  /**
-   * Precarga de imágenes críticas
-   */
+  
+  
+  
+  
   function preloadImages() {
     const criticalImages = [
       'images/hero/banner-hero.jpg',
@@ -327,13 +309,11 @@
     });
   }
 
-  // ===================
-  // UTILS
-  // ===================
   
-  /**
-   * Throttle function para optimizar eventos de scroll/resize
-   */
+  
+  
+  
+  
   function throttle(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -346,9 +326,7 @@
     };
   }
   
-  /**
-   * Debounce function
-   */
+  
   function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -361,31 +339,29 @@
     };
   }
 
-  // ===================
-  // INITIALIZATION
-  // ===================
   
-  /**
-   * Inicializar todas las funcionalidades
-   */
+  
+  
+  
+  
   function init() {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
       return;
     }
     
-    // Inicializar componentes
+    
     initMobileNav();
     initFormValidation();
     initActiveSection();
     initCardHoverEffects();
-    // initCountdown(); // Descomentar si quieres usar el countdown
+    
     preloadImages();
     
     console.log('✅ Main scripts initialized');
   }
 
-  // Ejecutar
+  
   init();
 
 })();

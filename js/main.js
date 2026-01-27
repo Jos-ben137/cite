@@ -1,10 +1,10 @@
-// js/main.js
+
 (function() {
   'use strict';
 
-  // ===================
-  // THEME TOGGLE
-  // ===================
+  
+  
+  
   
   function initTheme() {
     const themeToggle = document.getElementById('themeToggle');
@@ -47,7 +47,7 @@
       }
     });
     
-    // Escuchar cambios en preferencia del sistema
+    
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
       if (!localStorage.getItem('theme')) {
         if (e.matches) {
@@ -59,9 +59,9 @@
     });
   }
 
-  // ===================
-  // MOBILE NAVIGATION
-  // ===================
+  
+  
+  
   
   function initMobileNav() {
     const navToggle = document.getElementById('navToggle');
@@ -98,21 +98,21 @@
       }
     }
     
-    // Toggle con el botón
+    
     navToggle.addEventListener('click', toggleMenu);
     
-    // Cerrar con el overlay
+    
     if (navOverlay) {
       navOverlay.addEventListener('click', closeMenu);
     }
     
-    // Cerrar al hacer clic en un enlace
+    
     const links = navLinks.querySelectorAll('.nav__link');
     links.forEach(link => {
       link.addEventListener('click', closeMenu);
     });
     
-    // Cerrar con tecla Escape
+    
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isMenuOpen) {
         closeMenu();
@@ -120,7 +120,7 @@
       }
     });
     
-    // Cerrar al redimensionar a desktop
+    
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768 && isMenuOpen) {
         closeMenu();
@@ -128,9 +128,9 @@
     });
   }
 
-  // ===================
-  // ACTIVE SECTION
-  // ===================
+  
+  
+  
   
   function initActiveSection() {
     const sections = document.querySelectorAll('section[id]');
@@ -151,9 +151,9 @@
     sections.forEach(section => observer.observe(section));
   }
 
-  // ===================
-  // CARD HOVER EFFECTS
-  // ===================
+  
+  
+  
   
   function initCardHoverEffects() {
     if (window.matchMedia("(hover: none)").matches) return;
@@ -171,9 +171,9 @@
     });
   }
 
-  // ===================
-  // INITIALIZATION
-  // ===================
+  
+  
+  
   
   function init() {
     if (document.readyState === 'loading') {
