@@ -1,14 +1,8 @@
-/* ===================================
-   VARIABLES CSS - CITE 2026 (Dark Mode Ready)
-   =================================== */
-
 :root {
-  /* --- PALETA BASE (Nunca cambia) --- */
   --primary-base: #0F3D30; 
   --accent-base: #D4A017;
   --cyan-base: #008F99;
 
-  /* --- MODO CLARO (Por defecto) --- */
   --primary-color: #0F3D30;
   --primary-dark: #08261E;
   --accent-color: #D4A017;
@@ -25,7 +19,6 @@
   --border-light: #E5E7EB;
   --hero-gradient: radial-gradient(circle at 50% 0%, rgba(15, 61, 48, 0.03) 0%, transparent 70%);
   
-  /* --- CONFIGURACIÓN --- */
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --border-radius-sm: 6px;
   --border-radius-md: 12px;
@@ -37,35 +30,28 @@
   --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease;
 }
 
-/* --- MODO OSCURO (Activado por atributo data-theme="dark") --- */
 [data-theme="dark"] {
-  /* Reajuste de colores primarios para mejor contraste en oscuro */
-  --primary-color: #4ADE80; /* Un verde más brillante y legible sobre fondo oscuro */
+  --primary-color: #4ADE80;
   --primary-dark: #22C55E;
-  --accent-color: #FACC15; /* Amarillo más brillante */
+  --accent-color: #FACC15;
 
-  /* Superficies Oscuras (Estilo Slate/Cyberpunk suave) */
-  --surface-white: #0F172A;      /* Fondo principal (Azul muy oscuro) */
-  --surface-off-white: #1E293B;  /* Fondo secundario */
-  --surface-card: #1E293B;       /* Cards */
+  --surface-white: #0F172A;
+  --surface-off-white: #1E293B;
+  --surface-card: #1E293B;
   --surface-nav: rgba(15, 23, 42, 0.9);
   
-  /* Textos */
-  --text-primary: #F3F4F6;       /* Blanco hueso */
-  --text-secondary: #9CA3AF;     /* Gris claro */
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
   --text-tertiary: #6B7280;
   
-  /* Bordes y Detalles */
-  --border-light: #334155;       /* Borde gris azulado */
+  --border-light: #334155;
   --hero-gradient: radial-gradient(circle at 50% 0%, rgba(74, 222, 128, 0.05) 0%, transparent 70%);
   
-  /* Ajuste de sombras para que se noten en fondo oscuro */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
-/* Aplicar transición suave a todo */
 body, section, .card, .nav, .footer, .btn, .form__input {
   transition: var(--transition-theme);
 }
