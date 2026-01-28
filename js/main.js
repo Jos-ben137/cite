@@ -27,7 +27,7 @@
       html.setAttribute('data-theme', 'dark');
       if (iconLight) iconLight.style.display = 'none';
       if (iconDark) iconDark.style.display = 'block';
-      if (logoImg) logoImg.src = 'images/logos/logo-cite-dark.png';
+      if (logoImg) logoImg.src = 'images/logos/logo-cite-dark.webp';
       localStorage.setItem('theme', 'dark');
     }
 
@@ -35,7 +35,7 @@
       html.setAttribute('data-theme', 'light');
       if (iconLight) iconLight.style.display = 'block';
       if (iconDark) iconDark.style.display = 'none';
-      if (logoImg) logoImg.src = 'images/logos/logo-cite.png';
+      if (logoImg) logoImg.src = 'images/logos/logo-cite.webp';
       localStorage.setItem('theme', 'light');
     }
 
