@@ -1,0 +1,141 @@
+/* css/neural.css */
+
+/* === VARIABLES DINÁMICAS (CLARO / OSCURO) === */
+:root {
+    /* MODO CLARO (Por defecto) */
+    /* Arriba: Un verde grisáceo sólido pero tranquilo (Sage/Slate) */
+    --neural-grad-start: #dbe4e6; 
+    /* Abajo: Blanco puro para fundirse con el contenido */
+    --neural-grad-end: #ffffff;   
+    
+    /* Colores de la Red Neuronal en Modo Claro */
+    --network-node: #1e293b;      /* Nodos oscuros */
+    --network-line: rgba(30, 41, 59, 0.1);
+    --network-accent: #0F3D30;    /* Acento en tu verde de marca */
+}
+
+/* MODO OSCURO (Se activa automáticamente con tu botón de tema) */
+[data-theme="dark"] {
+    /* Arriba: Negro profundo */
+    --neural-grad-start: #020617; 
+    /* Abajo: El color de fondo de tu tema oscuro (Slate 900) */
+    --neural-grad-end: #0F172A;   
+    
+    /* Colores de la Red Neuronal en Modo Oscuro */
+    --network-node: #ffffff;      /* Nodos blancos */
+    --network-line: rgba(255, 255, 255, 0.1);
+    --network-accent: #00d4ff;    /* Acento Cyan tecnológico */
+}
+
+/* === SECCIÓN HERO === */
+.hero {
+    position: relative;
+    /* Degradado Vertical: Fuerte arriba -> Suave abajo */
+    background: linear-gradient(180deg, var(--neural-grad-start) 0%, var(--neural-grad-end) 100%) !important;
+    overflow: hidden;
+    /* Transición suave de color al cambiar tema */
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* Canvas de la red */
+#networkCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Contenedor del texto (Encima de la red) */
+.hero__container {
+    position: relative;
+    z-index: 10;
+}
+
+/* === AJUSTES DE TEXTO === */
+/* Aseguramos contraste en ambos modos */
+.hero__title {
+    color: var(--text-primary);
+    font-weight: 800;
+}
+
+/* El span de "Tecnologías" usa el acento de la marca o cyan en oscuro */
+.hero__title span {
+    color: var(--primary-color);
+}
+[data-theme="dark"] .hero__title span {
+    color: #00d4ff;
+}
+
+/* === BOTONES (Ajuste para visibilidad) === */
+.hero .btn--outline {
+    border-color: var(--text-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+.hero .btn--outline:hover {
+    background-color: var(--text-primary) !important;
+    color: var(--surface-white) !important;
+}
+
+/* === DECORACIÓN SUTIL === */
+.orbit-container {
+    position: absolute;
+    right: -5%;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    z-index: 0;
+    opacity: 0.6;
+    pointer-events: none;
+    /* Mezcla suave */
+    mix-blend-mode: multiply; 
+}
+[data-theme="dark"] .orbit-container {
+    mix-blend-mode: screen;
+    opacity: 0.2;
+}
+
+.orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--text-tertiary); /* Se adapta al tema */
+}
+
+.orbit-ring-1 { width: 100%; height: 100%; animation: rotateRing 120s linear infinite; opacity: 0.3; }
+.orbit-ring-2 { width: 70%; height: 70%; border-style: dashed; animation: rotateRing 140s linear infinite reverse; opacity: 0.2; }
+
+@keyframes rotateRing {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Chevrones decorativos */
+.chevrons {
+    position: absolute;
+    bottom: 100px;
+    left: 5%;
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.chevron {
+    width: 14px; height: 24px;
+    border-left: 2px solid var(--text-secondary);
+    border-bottom: 2px solid var(--text-secondary);
+    transform: rotate(-45deg);
+    animation: pulseChevron 3s infinite;
+}
+.chevron:nth-child(2) { animation-delay: 0.2s; }
+.chevron:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulseChevron {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}

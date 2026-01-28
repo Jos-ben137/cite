@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/sections.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/chat.css">
+    
+    <link rel="stylesheet" href="css/neural.css">
 </head>
 <body>
     
@@ -57,15 +59,30 @@
     </header>
 
     <section id="inicio" class="hero">
+        
+        <canvas id="networkCanvas"></canvas>
+        
+        <div class="orbit-container">
+            <div class="orbit-ring orbit-ring-1"></div>
+            <div class="orbit-ring orbit-ring-2"></div>
+        </div>
+
+        <div class="chevrons">
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+        </div>
+
         <div class="container hero__container">
-            <div data-aos="fade-down" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--surface-off-white); border: 1px solid var(--border-light); border-radius: 20px; color: var(--text-secondary); font-weight: 500; font-size: 14px; margin-bottom: 24px;">
+            
+            <div data-aos="fade-down" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--border-light); border-radius: 20px; font-weight: 500; font-size: 14px; margin-bottom: 24px; backdrop-filter: blur(4px);">
                 <span class="material-symbols-rounded" style="font-size: 16px; color: var(--accent-color);">calendar_today</span>
                 Jueves 29 de Enero, 2026
             </div>
 
             <h1 class="hero__title" data-aos="fade-up">
                 Coloquio de Ingeniería y <br>
-                <span style="color: var(--tech-cyan);">Tecnologías Emergentes</span>
+                <span>Tecnologías Emergentes</span>
             </h1>
             
             <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="100">
@@ -422,6 +439,9 @@
     <script src="js/main.js"></script>
     <script src="js/parallax.js"></script>
     <script src="js/chat.js"></script>
+    
+    <script src="js/neural.js"></script>
+    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
