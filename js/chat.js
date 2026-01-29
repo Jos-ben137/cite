@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chatInput');
     const chatSend = document.getElementById('chatSend');
     const chatMessages = document.getElementById('chatMessages');
+    const chatMinimize = document.getElementById('chatMinimize');
     const openIcon = chatToggle.querySelector('.chat-icon-open');
     const closeIcon = chatToggle.querySelector('.chat-icon-close');
 
@@ -35,9 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.style.setProperty('--chat-keyboard-offset', `${keyboardOffset}px`);
     }
 
-    // Toggle Chat
-    chatToggle.addEventListener('click', () => {
-        const isOpen = chatWindow.classList.toggle('active');
+    function setChatOpen(isOpen) {
+        chatWindow.classList.toggle('active', isOpen);
         if (isOpen) {
             openIcon.style.display = 'none';
             closeIcon.style.display = 'block';
@@ -51,7 +51,19 @@ document.addEventListener('DOMContentLoaded', () => {
             closeIcon.style.display = 'none';
             updateChatViewport();
         }
+    }
+
+    // Toggle Chat
+    chatToggle.addEventListener('click', () => {
+        const isOpen = !chatWindow.classList.contains('active');
+        setChatOpen(isOpen);
     });
+
+    if (chatMinimize) {
+        chatMinimize.addEventListener('click', () => {
+            setChatOpen(false);
+        });
+    }
 
     // Auto-resize textarea
     chatInput.addEventListener('input', function() {
