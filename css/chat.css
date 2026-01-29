@@ -226,8 +226,34 @@ textarea#chatInput:focus {
         height: calc(var(--chat-vh, 1vh) * 100);
         max-height: calc(var(--chat-vh, 1vh) * 100);
         border-radius: 0;
-        z-index: 1101; /* Encima del botón */
+        z-index: 1101;
     }
+
+    /* Hide toggle button when chat is open on mobile */
+    .chat-widget.chat-open .chat-toggle {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+    }
+
+    /* Bigger close button for mobile touch targets */
+    .chat-minimize {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 24px;
+    }
+
+    .chat-minimize .material-symbols-rounded {
+        font-size: 28px;
+    }
+
+    .chat-header {
+        padding: 12px 16px;
+        padding-top: calc(12px + env(safe-area-inset-top));
+    }
+
     .chat-toggle {
         z-index: 1102;
     }

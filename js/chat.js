@@ -37,7 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setChatOpen(isOpen) {
+        const chatWidget = chatToggle.closest('.chat-widget');
         chatWindow.classList.toggle('active', isOpen);
+        chatWidget.classList.toggle('chat-open', isOpen);
         if (isOpen) {
             openIcon.style.display = 'none';
             closeIcon.style.display = 'block';
