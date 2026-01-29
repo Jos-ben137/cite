@@ -18,6 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('chat_user_id', userId);
     }
 
+    function updateChatViewport() {
+        const isMobile = window.matchMedia('(max-width: 480px)').matches;
+        if (!isMobile) {
+            document.documentElement.style.setProperty('--chat-vh', '1vh');
+            document.documentElement.style.setProperty('--chat-keyboard-offset', '0px');
+            return;
+        }
+
+        const viewport = window.visualViewport;
+        const height = viewport ? viewport.height : window.innerHeight;
+        const offsetTop = viewport ? viewport.offsetTop : 0;
+        const keyboardOffset = Math.max(0, window.innerHeight - height - offsetTop);
+
+        document.documentElement.style.setProperty('--chat-vh', `${height * 0.01}px`);
+        document.documentElement.style.setProperty('--chat-keyboard-offset', `${keyboardOffset}px`);
+    }
+
     // Toggle Chat
     chatToggle.addEventListener('click', () => {
         const isOpen = chatWindow.classList.toggle('active');
@@ -25,9 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
             openIcon.style.display = 'none';
             closeIcon.style.display = 'block';
             chatInput.focus();
+            setTimeout(() => {
+                updateChatViewport();
+                scrollToBottom();
+            }, 50);
         } else {
             openIcon.style.display = 'block';
             closeIcon.style.display = 'none';
+            updateChatViewport();
         }
     });
 
@@ -36,6 +58,17 @@ document.addEventListener('DOMContentLoaded', () => {
         this.style.height = 'auto';
         this.style.height = (this.scrollHeight) + 'px';
         if(this.value === '') this.style.height = 'auto';
+    });
+
+    chatInput.addEventListener('focus', () => {
+        setTimeout(() => {
+            updateChatViewport();
+            scrollToBottom();
+        }, 50);
+    });
+
+    chatInput.addEventListener('blur', () => {
+        setTimeout(updateChatViewport, 50);
     });
 
     // Enviar mensaje
@@ -129,6 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function scrollToBottom() {
         chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    updateChatViewport();
+    window.addEventListener('resize', updateChatViewport);
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', updateChatViewport);
+        window.visualViewport.addEventListener('scroll', updateChatViewport);
     }
 
     // Event Listeners para enviar
